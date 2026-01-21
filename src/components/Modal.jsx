@@ -65,7 +65,8 @@ const Modal = ({ isOpen, onClose, title, subtitle, duration, description, image,
               <img 
                 src={image} 
                 alt={title}
-                className="w-[75%] h-auto block object-cover max-h-[30vh] sm:max-h-[35vh]"
+                className="h-auto block object-cover max-h-[30vh] sm:max-h-[35vh]"
+                style={{ width: '75%' }}
               />
             </figure>
           )}
