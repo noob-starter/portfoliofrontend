@@ -5,465 +5,435 @@ import { SOCIAL_LINKS } from '../config/api';
 
 export const defaultFaqs = [
   {
-    question: "What services does offer MindEdge?",
-    answer: "MindEdge offers a comprehensive range of services including full-stack web development, AI/ML solutions, cloud architecture design, DevOps implementation, and technical consulting. I specialize in building scalable applications using modern technologies like React, Node.js, Python, and AWS. Each project is tailored to meet your specific business needs and objectives."
+    question: "Are You aware of AI Tools used by industry?",
+    answer: "Yes, I'am aware. I commonly use Cursor, Github-copilot, ChaGPT, and GrokAI."
   },
   {
-    question: "How much does a single coaching session cost?",
-    answer: "Coaching sessions are priced at $150 per hour for individual sessions. I also offer package deals: a 5-session bundle for $650 (saving $100) or a 10-session bundle for $1,200 (saving $300). Each session includes personalized guidance, code reviews, and follow-up resources to help you achieve your learning goals."
+    question: "What technologies do you specialize in?",
+    answer: "I specialize in Java, Spring Boot, React, Artificial Intelligence, and SQL. I have extensive experience building full-stack web applications with modern frameworks and best practices. Also, I have developed applications containing agents."
+  },
+  {
+    question: "How many years of experience do you have?",
+    answer: "I have begun my professional journey as software development engineer, working on various microservices under fraud detection category used to block VPNs, Account Sharing, ChargeBacks, and Payment Risk Identification."
   },
   {
     question: "Can I work with you 1-on-1?",
     answer: "Absolutely! I offer one-on-one collaboration for both project development and mentoring. This includes direct communication via video calls, screen sharing sessions, and collaborative coding. Whether you need help with a specific project, want to learn new technologies, or require technical guidance, I'm available for personalized support tailored to your needs."
   },
   {
-    question: "Do you work with students and mid-business?",
-    answer: "Yes, I work with a diverse range of clients including students, startups, and mid-size businesses. For students, I offer educational discounts and flexible payment plans. For businesses, I provide scalable solutions that grow with your organization. I've successfully delivered projects for companies ranging from early-stage startups to established enterprises with teams of 50+ employees."
-  },
-  {
     question: "What if main issue goes different?",
     answer: "Flexibility is key in software development. If project requirements change or unexpected challenges arise, I adapt accordingly. All projects include regular check-ins and milestone reviews to ensure we're aligned. If scope changes significantly, I'll provide updated timelines and cost estimates. My agile approach ensures we can pivot when needed while maintaining project quality and meeting your core objectives."
+  },
+  {
+    question: "Are you available for freelance projects?",
+    answer: "Yes, I am available for freelance projects. Please feel free to reach out to me through the contact form or via email."
   }
 ];
 
 
 export const defaultExperiences = [
   {
-    image: "https://picsum.photos/id/180/800/450",
-    title: "Senior Software Engineer",
-    subtitle: "Tech Corp",
-    duration: "2021 • Present • Remote",
+    image: "https://github.com/noob-starter/portfoliojava/blob/main/urls/banners/languages/wbd.png",
+    title: "Software Engineer 1",
+    subtitle: "Warner Bros Discovery",
+    duration: "2025 • Present • Hyderabad, India",
     points: [
-      "Led development of scalable microservices architecture, improving system performance by 40%",
-      "Reduced deployment time by 60% through CI/CD pipeline optimization",
-      "Mentored team of 5 junior developers and conducted code reviews"
+      "Architected and developed a multi-microservice fraud prevention platform comprising 3 Spring Boot services handling real-time decision-making with gRPC inter-service communication and ML model integration for predictive fraud scoring.",
+      "Designed and implemented an event-driven decisioning pipeline processing Kafka streams through state machines, with automated dispute evidence generation using Databricks, enabling data-driven fraud mitigation at scale with comprehensive Micrometer-based observability."
     ],
-    link: "#experience/senior-engineer",
-    githubLink: `${SOCIAL_LINKS.github}/microservices-project`,
-    technologies: ["React", "Node.js", "Docker", "Kubernetes", "AWS", "MongoDB"],
-    useModal: true
-  },
-  {
-    image: "https://picsum.photos/id/0/800/450",
-    title: "Full Stack Developer",
-    subtitle: "StartUp Inc",
-    duration: "2019 • 2021 • San Francisco",
-    points: [
-      "Built responsive web applications using React, Node.js, and MongoDB",
-      "Collaborated with cross-functional teams to deliver high-quality products",
-      "Implemented Redux for state management across multiple applications"
-    ],
-    link: "#experience/fullstack",
-    githubLink: `${SOCIAL_LINKS.github}/fullstack-projects`,
-    technologies: ["React", "Node.js", "Express", "MongoDB", "Redux", "Tailwind CSS"],
-    useModal: true
-  },
-  {
-    image: "https://picsum.photos/id/119/800/450",
-    title: "Tech Lead",
-    subtitle: "Innovation Labs",
-    duration: "2017 • 2019 • New York",
-    points: [
-      "Mentored junior developers and conducted regular code reviews",
-      "Established best practices for the development team of 10+ engineers",
-      "Led migration from JavaScript to TypeScript across multiple projects"
-    ],
-    link: "#experience/tech-lead",
-    githubLink: `${SOCIAL_LINKS.github}/team-resources`,
-    technologies: ["JavaScript", "TypeScript", "React", "Vue.js", "Git", "Agile"],
-    useModal: true
-  },
-  {
-    image: "https://picsum.photos/id/1/800/450",
-    title: "AI/ML Engineer",
-    subtitle: "DataTech Solutions",
-    duration: "2015 • 2017 • Boston",
-    points: [
-      "Developed machine learning models for predictive analytics",
-      "Achieved 85% accuracy in customer behavior prediction",
-      "Optimized model performance reducing inference time by 40%"
-    ],
-    link: "#experience/ai-ml",
-    githubLink: `${SOCIAL_LINKS.github}/ml-models`,
-    technologies: ["Python", "TensorFlow", "PyTorch", "Scikit-learn", "Pandas", "NumPy"],
-    useModal: true
-  },
-  {
-    image: "https://picsum.photos/id/74/800/450",
-    title: "DevOps Engineer",
-    subtitle: "Cloud Systems",
-    duration: "2013 • 2015 • Seattle",
-    points: [
-      "Automated deployment pipelines using Docker, Kubernetes, and CI/CD tools",
-      "Reduced deployment time by 75% through infrastructure optimization",
-      "Implemented monitoring and alerting systems for production environments"
-    ],
-    link: "#experience/devops",
-    githubLink: `${SOCIAL_LINKS.github}/devops-tools`,
-    technologies: ["Docker", "Kubernetes", "Jenkins", "AWS", "Terraform", "Ansible"],
+    link: "#experience/wbd",
+    githubLink: "https://github.com/noob-starter",
+    technologies: ["Java", "Spring Boot", "CSS3", "Flask", "Kafka", "GRPC", "JUnit", "Docker", "System Design", "PostGresSQL", "Collaboration", "Adaptability", "Patience"],
     useModal: true
   }
 ];
 
 export const defaultTechnologies = [
   { 
-    image: "https://picsum.photos/id/180/800/450", 
-    title: "React.js", 
-    subtitle: "Frontend Framework • Advanced", 
-    description: "Building dynamic and interactive user interfaces with modern React patterns and hooks.", 
+    image: "https://github.com/noob-starter/portfoliojava/blob/main/urls/banners/languages/java.png", 
+    title: "Java", 
+    subtitle: "Backend • Intermediate", 
+    description: "Building robust backend systems and enterprise applications with Java.", 
     link: "#", 
-    githubLink: SOCIAL_LINKS.github 
+    githubLink: "https://github.com/noob-starter" 
   },
   { 
-    image: "https://picsum.photos/id/0/800/450", 
-    title: "Node.js", 
-    subtitle: "Backend Runtime • Advanced", 
-    description: "Creating scalable backend services and RESTful APIs with Express and Node.js ecosystem.", 
-    link: "#", 
-    githubLink: SOCIAL_LINKS.github 
-  },
-  { 
-    image: "https://picsum.photos/id/119/800/450", 
-    title: "Tailwind CSS", 
-    subtitle: "CSS Framework • Intermediate", 
-    description: "Designing beautiful, responsive interfaces with utility-first CSS framework.", 
-    link: "#", 
-    githubLink: SOCIAL_LINKS.github 
-  },
-  { 
-    image: "https://picsum.photos/id/1/800/450", 
-    title: "MongoDB", 
-    subtitle: "NoSQL Database • Advanced", 
-    description: "Developing robust database solutions with NoSQL database management systems.", 
-    link: "#", 
-    githubLink: SOCIAL_LINKS.github 
-  },
-  { 
-    image: "https://picsum.photos/id/74/800/450", 
+    image: "https://github.com/noob-starter/portfoliojava/blob/main/urls/banners/languages/python.png", 
     title: "Python", 
-    subtitle: "Programming Language • Advanced", 
+    subtitle: "Scripting • Expert", 
     description: "Building data processing pipelines and machine learning models with Python.", 
     link: "#", 
-    githubLink: SOCIAL_LINKS.github 
+    githubLink: "https://github.com/noob-starter" 
   },
   { 
-    image: "https://picsum.photos/id/201/800/450", 
-    title: "AWS", 
-    subtitle: "Cloud Platform • Intermediate", 
-    description: "Deploying and managing cloud infrastructure on Amazon Web Services platform.", 
+    image: "https://github.com/noob-starter/portfoliojava/blob/main/urls/banners/languages/cpp.png", 
+    title: "C/C++", 
+    subtitle: "System • Intermediate", 
+    description: "Developing high-performance system-level applications and algorithms.", 
     link: "#", 
-    githubLink: SOCIAL_LINKS.github 
+    githubLink: "https://github.com/noob-starter" 
+  },
+  { 
+    image: "https://github.com/noob-starter/portfoliojava/blob/main/urls/banners/languages/sql.png", 
+    title: "SQL", 
+    subtitle: "Query • Advanced", 
+    description: "Designing and optimizing database queries for efficient data management.", 
+    link: "#", 
+    githubLink: "https://github.com/noob-starter" 
+  },
+  { 
+    image: "https://github.com/noob-starter/portfoliojava/blob/main/urls/banners/languages/javascript.png", 
+    title: "JavaScript", 
+    subtitle: "Scripting • Beginner", 
+    description: "Creating interactive web applications with modern JavaScript.", 
+    link: "#", 
+    githubLink: "https://github.com/noob-starter" 
+  },
+  { 
+    image: "https://github.com/noob-starter/portfoliojava/blob/main/urls/banners/languages/html.png", 
+    title: "HTML5", 
+    subtitle: "Frontend • Advanced", 
+    description: "Building semantic and accessible web pages with modern HTML5.", 
+    link: "#", 
+    githubLink: "https://github.com/noob-starter" 
+  },
+  { 
+    image: "https://github.com/noob-starter/portfoliojava/blob/main/urls/banners/languages/css.png", 
+    title: "CSS3", 
+    subtitle: "Styling • Intermediate", 
+    description: "Designing beautiful, responsive interfaces with modern CSS3.", 
+    link: "#", 
+    githubLink: "https://github.com/noob-starter" 
+  },
+  { 
+    image: "https://github.com/noob-starter/portfoliojava/blob/main/urls/banners/languages/springboot.png", 
+    title: "Spring Boot", 
+    subtitle: "Framework • Expert", 
+    description: "Building enterprise-grade microservices with Spring Boot framework.", 
+    link: "#", 
+    githubLink: "https://github.com/noob-starter" 
+  },
+  { 
+    image: "https://github.com/noob-starter/portfoliojava/blob/main/urls/banners/languages/react.png", 
+    title: "React", 
+    subtitle: "Frontend • Intermediate", 
+    description: "Building dynamic and interactive user interfaces with modern React.", 
+    link: "#", 
+    githubLink: "https://github.com/noob-starter" 
+  },
+  { 
+    image: "https://github.com/noob-starter/portfoliojava/blob/main/urls/banners/languages/nodejs.png", 
+    title: "Node", 
+    subtitle: "Backend • Intermediate", 
+    description: "Creating scalable backend services and RESTful APIs with Node.js.", 
+    link: "#", 
+    githubLink: "https://github.com/noob-starter" 
+  },
+  { 
+    image: "https://github.com/noob-starter/portfoliojava/blob/main/urls/banners/languages/flask.png", 
+    title: "Flask", 
+    subtitle: "Framework • Beginner", 
+    description: "Building lightweight web applications with Python Flask framework.", 
+    link: "#", 
+    githubLink: "https://github.com/noob-starter" 
+  },
+  { 
+    image: "https://github.com/noob-starter/portfoliojava/blob/main/urls/banners/languages/kafka.png", 
+    title: "Kafka", 
+    subtitle: "Messaging • Intermediate", 
+    description: "Implementing real-time data streaming and event-driven architectures.", 
+    link: "#", 
+    githubLink: "https://github.com/noob-starter" 
+  },
+  { 
+    image: "https://github.com/noob-starter/portfoliojava/blob/main/urls/banners/languages/grpc.png", 
+    title: "GRPC", 
+    subtitle: "Communication • Beginner", 
+    description: "Building high-performance RPC systems with gRPC framework.", 
+    link: "#", 
+    githubLink: "https://github.com/noob-starter" 
+  },
+  { 
+    image: "https://github.com/noob-starter/portfoliojava/blob/main/urls/banners/languages/junit.png", 
+    title: "JUnit", 
+    subtitle: "Testing • Intermediate", 
+    description: "Writing comprehensive unit tests for Java applications.", 
+    link: "#", 
+    githubLink: "https://github.com/noob-starter" 
+  },
+  { 
+    image: "https://github.com/noob-starter/portfoliojava/blob/main/urls/banners/languages/docker.png", 
+    title: "Docker", 
+    subtitle: "Containerization • Intermediate", 
+    description: "Containerizing applications for consistent deployment across environments.", 
+    link: "#", 
+    githubLink: "https://github.com/noob-starter" 
+  },
+  { 
+    image: "https://github.com/noob-starter/portfoliojava/blob/main/urls/banners/languages/systemdesign.png", 
+    title: "System Design", 
+    subtitle: "Design • Intermediate", 
+    description: "Architecting scalable and reliable distributed systems.", 
+    link: "#", 
+    githubLink: "https://github.com/noob-starter" 
+  },
+  { 
+    image: "https://github.com/noob-starter/portfoliojava/blob/main/urls/banners/languages/aws.png", 
+    title: "AWS", 
+    subtitle: "Cloud Computing • Intermediate", 
+    description: "Deploying and managing cloud infrastructure on Amazon Web Services.", 
+    link: "#", 
+    githubLink: "https://github.com/noob-starter" 
+  },
+  { 
+    image: "https://github.com/noob-starter/portfoliojava/blob/main/urls/banners/languages/postgress.png", 
+    title: "PostGresSQL", 
+    subtitle: "Database • Intermediate", 
+    description: "Designing robust relational database solutions with PostgreSQL.", 
+    link: "#", 
+    githubLink: "https://github.com/noob-starter" 
+  },
+  { 
+    image: "https://github.com/noob-starter/portfoliojava/blob/main/urls/banners/languages/dynamodb.png", 
+    title: "DynamoDB", 
+    subtitle: "Database • Advanced", 
+    description: "Building scalable NoSQL database solutions with AWS DynamoDB.", 
+    link: "#", 
+    githubLink: "https://github.com/noob-starter" 
+  },
+  { 
+    image: "https://github.com/noob-starter/portfoliojava/blob/main/urls/banners/languages/mongodb.png", 
+    title: "MongoDB", 
+    subtitle: "Database • Beginner", 
+    description: "Developing database solutions with MongoDB NoSQL database.", 
+    link: "#", 
+    githubLink: "https://github.com/noob-starter" 
   }
 ];
 
 export const defaultInterpersonalSkills = [
   {
-    image: "https://picsum.photos/id/103/800/450",
-    title: "Communication",
-    subtitle: "Effective Collaboration • Expert",
-    description: "Exceptional verbal and written communication skills, with ability to convey complex technical concepts to diverse audiences and stakeholders.",
-    link: "#skills/communication",
-    githubLink: SOCIAL_LINKS.github
-  },
-  {
-    image: "https://picsum.photos/id/1005/800/450",
-    title: "Leadership & Teamwork",
-    subtitle: "Team Excellence • Advanced",
-    description: "Proven ability to lead cross-functional teams, mentor junior developers, and collaborate effectively in agile environments.",
-    link: "#skills/leadership",
-    githubLink: SOCIAL_LINKS.github
-  },
-  {
-    image: "https://picsum.photos/id/20/800/450",
+    image: "https://github.com/noob-starter/portfoliojava/blob/main/urls/banners/languages/problemsolving.png",
     title: "Problem Solving",
-    subtitle: "Analytical Thinking • Expert",
+    subtitle: "Personal • Advanced",
     description: "Strong analytical and critical thinking skills to identify issues, evaluate solutions, and implement effective technical strategies.",
     link: "#skills/problem-solving",
-    githubLink: SOCIAL_LINKS.github
+    githubLink: "https://github.com/noob-starter"
   },
   {
-    image: "https://picsum.photos/id/60/800/450",
+    image: "https://github.com/noob-starter/portfoliojava/blob/main/urls/banners/languages/collaboration.png",
+    title: "Collaboration",
+    subtitle: "Social • Beginner",
+    description: "Working effectively with cross-functional teams to deliver high-quality products and solutions.",
+    link: "#skills/collaboration",
+    githubLink: "https://github.com/noob-starter"
+  },
+  {
+    image: "https://github.com/noob-starter/portfoliojava/blob/main/urls/banners/languages/adaptability.png",
     title: "Adaptability",
-    subtitle: "Continuous Learning • Advanced",
+    subtitle: "Personal • Expert",
     description: "Quick to learn new technologies and adapt to changing project requirements, thriving in fast-paced development environments.",
     link: "#skills/adaptability",
-    githubLink: SOCIAL_LINKS.github
+    githubLink: "https://github.com/noob-starter"
   },
   {
-    image: "https://picsum.photos/id/10/800/450",
-    title: "Time Management",
-    subtitle: "Efficient Execution • Advanced",
-    description: "Expert at prioritizing tasks, meeting deadlines, and managing multiple projects simultaneously while maintaining high quality standards.",
-    link: "#skills/time-management",
-    githubLink: SOCIAL_LINKS.github
+    image: "https://github.com/noob-starter/portfoliojava/blob/main/urls/banners/languages/patience.png",
+    title: "Patience",
+    subtitle: "Personal • Intermediate",
+    description: "Maintaining composure and persistence when facing complex challenges and debugging difficult issues.",
+    link: "#skills/patience",
+    githubLink: "https://github.com/noob-starter"
   },
   {
-    image: "https://picsum.photos/id/15/800/450",
-    title: "Creative Thinking",
-    subtitle: "Innovation Mindset • Expert",
-    description: "Innovative approach to software development, consistently finding unique solutions to complex challenges and improving user experiences.",
-    link: "#skills/creativity",
-    githubLink: SOCIAL_LINKS.github
+    image: "https://github.com/noob-starter/portfoliojava/blob/main/urls/banners/languages/activelistening.png",
+    title: "Active Listening",
+    subtitle: "Personal • Intermediate",
+    description: "Attentively understanding requirements, feedback, and team communication to deliver better solutions.",
+    link: "#skills/active-listening",
+    githubLink: "https://github.com/noob-starter"
+  },
+  {
+    image: "https://github.com/noob-starter/portfoliojava/blob/main/urls/banners/languages/trustbuilding.png",
+    title: "Trust Building",
+    subtitle: "Social • Advanced",
+    description: "Building strong professional relationships through reliability, transparency, and consistent delivery of quality work.",
+    link: "#skills/trust-building",
+    githubLink: "https://github.com/noob-starter"
   }
 ];
 
 export const defaultAchievements = [
   {
-    image: "https://picsum.photos/id/1/800/450",
-    title: "Building Scalable Microservices Architecture",
-    subtitle: "Tech Conference • 2024",
-    description: "A comprehensive guide to designing and implementing microservices using Docker, Kubernetes, and best practices for cloud-native applications.",
-    link: "#achievement/microservices",
-    githubLink: SOCIAL_LINKS.github
+    image: "https://github.com/noob-starter/portfoliojava/blob/main/urls/banners/languages/airjodhpur.png",
+    title: "Conference Paper",
+    subtitle: "Advances In Robotics • 2025",
+    description: "Published research paper titled \"Robot Motion Planning by Non-prehensile Obstruction Handling in Cluttered Environment\" at Advances in Robotics, IIT Jodhpur under \"Planning and navigation in unstructured environments\".",
+    link: "https://advancesinrobotics.com/2025/",
+    githubLink: "https://github.com/noob-starter"
   },
   {
-    image: "https://picsum.photos/id/20/800/450",
-    title: "Machine Learning in Production",
-    subtitle: "AI Summit • 2023",
-    description: "Learn how to deploy ML models at scale, monitor performance, and maintain reliability in production environments with real-world examples.",
-    link: "#achievement/ml-production",
-    githubLink: SOCIAL_LINKS.github
+    image: "https://github.com/noob-starter/portfoliojava/blob/main/urls/banners/languages/jstjapanvisit.png",
+    title: "Technology Exchange visit Japan",
+    subtitle: "Japan Science and Technology Agency (JST) • 2024",
+    description: "Selected out of 200 students of the AI Dept. IITH to visit Ehime University, Matsuyama, Japan under Sakura Science Program managed by Japan Science and Technology Agency.",
+    link: "https://ssp.jst.go.jp/en/",
+    githubLink: "https://github.com/noob-starter"
   },
   {
-    image: "https://picsum.photos/id/119/800/450",
-    title: "Modern React Development Patterns",
-    subtitle: "Frontend Conference • 2023",
-    description: "Exploring advanced React patterns including hooks, context API, and state management solutions to build maintainable applications.",
-    link: "#achievement/react-patterns",
-    githubLink: SOCIAL_LINKS.github
-  },
-  {
-    image: "https://picsum.photos/id/60/800/450",
-    title: "DevOps Best Practices for 2025",
-    subtitle: "DevOps Summit • 2025",
-    description: "Essential DevOps strategies covering CI/CD pipelines, infrastructure as code, monitoring, and security practices for modern development teams.",
-    link: "#achievement/devops-2025",
-    githubLink: SOCIAL_LINKS.github
+    image: "https://github.com/noob-starter/portfoliojava/blob/main/urls/banners/languages/gate2023.png",
+    title: "Graduate Aptitude Test in Engineering 2023",
+    subtitle: "GATE 2023 Committee (IIT Kanpur) • 2023",
+    description: "Secured Top 0.2% in CS & IT stream with AIR-370.",
+    link: "https://gate.iitk.ac.in/GATE2023/",
+    githubLink: "https://github.com/noob-starter"
   }
 ];
 
 export const defaultEducation = [
   {
-    image: "https://picsum.photos/id/180/800/450",
-    title: "University of Technology",
-    subtitle: "Bachelor of Science in Computer Science",
-    duration: "2009 - 2013 • 3.8 CGPA",
-    description: "Graduated with honors from University of Technology. Specialized in Software Engineering, Data Structures, and Algorithm Design with a GPA of 3.8/4.0.",
-    link: "#education/bachelor",
-    githubLink: SOCIAL_LINKS.github,
+    image: "https://github.com/noob-starter/portfoliojava/blob/main/urls/banners/languages/iith.png",
+    title: "Indian Institute of Technology, Hyderabad",
+    subtitle: "Master of Technology in Artificial Intelligence and Machine Learning",
+    duration: "2023 - 2025 • 8.90 CGPA",
+    description: "Focused on artificial intelligence, deep learning, and data science, with a particular emphasis on robotics applications. I developed an innovative trajectory-planning algorithm designed specifically for fruit-picking robots. The algorithm integrates contextual environmental data—such as branch density, fruit location, and obstacle proximity—into the planning process. By doing so, it significantly improves the robot's ability to navigate complex orchard environments efficiently and safely. I also enhanced traditional path-planning methods, particularly the A algorithm, by embedding environmental cost factors directly into its objective function. This modification allows the system to distinguish and manage both \"soft\" obstacles (like leaves or flexible branches) and \"hard\" obstacles (like tree trunks or rigid structures). The result is a more adaptive, context-aware navigation approach that offers better performance than standard A in real-world agricultural settings.",
+    link: "https://iith.ac.in",
+    githubLink: "https://github.com/noob-starter",
     useModal: true
   },
   {
-    image: "https://picsum.photos/id/1005/800/450",
-    title: "Institute of Advanced Studies",
-    subtitle: "Master of Science in Artificial Intelligence",
-    duration: "2013 - 2015 • 85%",
-    description: "Advanced degree focused on Machine Learning, Deep Learning, and Natural Language Processing. Completed thesis on neural network optimization techniques.",
-    link: "#education/master",
-    githubLink: SOCIAL_LINKS.github,
+    image: "https://github.com/noob-starter/portfoliojava/blob/main/urls/banners/languages/rcoem.png",
+    title: "Shri Ramdeobaba College of Engineering and Management, Nagpur",
+    subtitle: "Bachelor of Engineering in Computer Science and Engineering (Honors)",
+    duration: "2019 - 2023 • 8.48 CGPA",
+    description: "Focused on core areas of computer science and engineering. Developed a gender recognition system using voice, applying signal processing, data analytics and machine learning techniques. Extracted key acoustic features and trained classification models to accurately distinguish male and female voices, improving recognition reliability across diverse speech samples.",
+    link: "https://www.rknec.edu/",
+    githubLink: "https://github.com/noob-starter",
     useModal: true
   },
   {
-    image: "https://picsum.photos/id/201/800/450",
-    title: "Amazon Web Services",
-    subtitle: "AWS Certified Solutions Architect",
-    duration: "2020 • 90%",
-    description: "Professional certification demonstrating expertise in designing and deploying scalable, highly available systems on Amazon Web Services platform.",
-    link: "#education/aws-cert",
-    githubLink: SOCIAL_LINKS.github,
+    image: "https://github.com/noob-starter/portfoliojava/blob/main/urls/banners/languages/dharampethscience.png",
+    title: "Dharampeth M.P. Deo Memorial Science College, Nagpur",
+    subtitle: "Senior Secondary Education (HSC) - Science Stream",
+    duration: "2018 - 2019 • 89.85%",
+    description: "Completed HSC in Science with Computer Science as an elective, gaining foundational knowledge in programming, algorithms, and computational thinking. Built strong fundamentals in physics and mathematics while developing practical skills in coding, problem-solving, and logical reasoning.",
+    link: "https://www.dharampethscience.com/",
+    githubLink: "https://github.com/noob-starter",
     useModal: true
   },
   {
-    image: "https://picsum.photos/id/103/800/450",
-    title: "Coding Academy",
-    subtitle: "Full Stack Web Development Bootcamp",
-    duration: "2018 • 95%",
-    description: "Intensive 6-month program covering modern web technologies including React, Node.js, MongoDB, and RESTful API development with hands-on projects.",
-    link: "#education/bootcamp",
-    githubLink: SOCIAL_LINKS.github,
+    image: "https://github.com/noob-starter/portfoliojava/blob/main/urls/banners/languages/tiptopconvent.png",
+    title: "Tip Top Convent, Nagpur",
+    subtitle: "Secondary Education (SSC) - General Education",
+    duration: "2016 - 2017 • 92.80%",
+    description: "Completed SSC with all general subjects, building a solid foundation in core academic areas including mathematics, science, and languages. Developed essential skills in analytical thinking, communication, and overall academic discipline.",
+    link: "https://www.tiptopconvent.com/",
+    githubLink: "https://github.com/noob-starter",
     useModal: true
   }
 ];
 
 export const defaultProjects = [
   {
-    image: "https://picsum.photos/id/180/800/450",
-    title: "E-Commerce Platform",
-    subtitle: "Full Stack Web App • 2024",
-    duration: "Jan 2024 - Mar 2024",
+    image: "https://github.com/noob-starter/portfoliojava/blob/main/urls/banners/languages/robot.png",
+    title: "Trajectory Planning using Contextual Information (AI in Robotics)",
+    subtitle: "Robotics Research • 2024-2025",
+    duration: "Jul 2024 - May 2025",
     points: [
-      "Built a full-stack e-commerce platform with user authentication, product management, shopping cart, and payment integration",
-      "Implemented multiple payment gateways including Stripe and PayPal for secure transactions",
-      "Developed real-time inventory management system with automated stock updates",
-      "Created advanced search functionality with filters, sorting options, and faceted navigation",
-      "Optimized for scalability to handle thousands of concurrent users with fast response times"
+      "Developed an innovative trajectory planning algorithm that integrates contextual environmental data to optimize performance (specific to fruit picking), addressing how this integration improves efficiency in navigating obstacles.",
+      "Enhanced Traditional Algorithms (A*) by incorporating environmental cost factors into the objective function, enabling the effective management of both soft and hard obstacles in a novel manner.",
+      "Mentor: Dr. Rekha Raja, Assistant Professor in AI Dept. at IIT Hyderabad."
     ],
-    link: "#project/ecommerce",
-    githubLink: `${SOCIAL_LINKS.github}/ecommerce-platform`,
-    technologies: ["React", "Node.js", "MongoDB", "Express", "Stripe", "JWT", "Redux"],
+    link: "#project/trajectory-planning",
+    githubLink: "https://github.com/noob-starter",
+    technologies: ["Python"],
     useModal: true
   },
   {
-    image: "https://picsum.photos/id/0/800/450",
-    title: "AI Chatbot Assistant",
+    image: "https://github.com/noob-starter/portfoliojava/blob/main/urls/banners/languages/fraud.png",
+    title: "Financial Fraud Detection and Classification with Synthetic Data Generation",
     subtitle: "Machine Learning • 2024",
-    duration: "Apr 2024 - Jun 2024",
+    duration: "Jan 2024 - May 2024",
     points: [
-      "Developed an intelligent chatbot powered by natural language processing and machine learning",
-      "Implemented advanced NLP techniques to parse user intent and maintain conversation context",
-      "Built self-learning system that improves responses based on user interactions over time",
-      "Created seamless integration capabilities for web, mobile, and messaging platforms",
-      "Achieved 92% accuracy in understanding user queries and providing relevant responses"
+      "Collaboratively Enhanced transactional security using AutoEncoder Model by uncovering underlying patterns utilizing Node2Vec, Graph CNN & SC Tech. along with Synthetic data generation for model upgrades",
+      "The selected model which integrates the Variational Autoencoder with Cost-Sensitive Logistic Regression (Bhansen) significantly outperformed traditional models, achieving a 50% improvement."
     ],
-    link: "#project/ai-chatbot",
-    githubLink: `${SOCIAL_LINKS.github}/ai-chatbot`,
-    technologies: ["Python", "TensorFlow", "Natural Language Processing", "Flask", "Docker", "PostgreSQL"],
+    link: "#project/fraud-detection",
+    githubLink: "https://github.com/noob-starter",
+    technologies: ["Python"],
     useModal: true
   },
   {
-    image: "https://picsum.photos/id/119/800/450",
-    title: "Task Management System",
-    subtitle: "Productivity App • 2023",
-    duration: "Oct 2023 - Dec 2023",
+    image: "https://github.com/noob-starter/portfoliojava/blob/main/urls/banners/languages/packaging.png",
+    title: "Product Packaging Application",
+    subtitle: "Web Application • 2022",
+    duration: "Apr 2022 - Jun 2022",
     points: [
-      "Created a comprehensive task Wmanagement application with real-time collaboration features",
-      "Implemented board, list, and card organization system similar to popular productivity tools",
-      "Integrated file attachments, comments, and real-time notifications for team communication",
-      "Developed WebSocket-based synchronization ensuring all team members stay updated instantly",
-      "Built analytics dashboard providing insights into team productivity and project progress"
+      "Spearheaded the development of the Dynamic SPAs titled \"IMDB\" using Restful Web APIs and Model View Controller Architecture with the primary focus on illuminating Cinematic Highlights.",
+      "Engineered an app that integrates an extensive IMDB movie database, delivering detailed information and enabling user-generated ratings and reviews, empowering over 100 users to create personalized watch-lists & share insights"
     ],
-    link: "#project/task-management",
-    githubLink: `${SOCIAL_LINKS.github}/task-manager`,
-    technologies: ["React", "Firebase", "WebSockets", "Material-UI", "Chart.js", "Node.js"],
-    useModal: true
-  },
-  {
-    image: "https://picsum.photos/id/1/800/450",
-    title: "Weather Forecast App",
-    subtitle: "Mobile Application • 2023",
-    duration: "Jul 2023 - Sep 2023",
-    points: [
-      "Built a beautiful weather application providing accurate forecasts and severe weather alerts",
-      "Integrated multiple weather APIs to ensure the most accurate and reliable forecasts",
-      "Developed interactive radar maps with precipitation overlays and weather pattern visualization",
-      "Implemented push notifications for severe weather alerts and daily forecast summaries",
-      "Created multi-location support with detailed hourly and 10-day forecasts"
-    ],
-    link: "#project/weather-app",
-    githubLink: `${SOCIAL_LINKS.github}/weather-app`,
-    technologies: ["React Native", "OpenWeather API", "Redux", "TypeScript", "Google Maps API"],
-    useModal: true
-  },
-  {
-    image: "https://picsum.photos/id/74/800/450",
-    title: "Portfolio Website Builder",
-    subtitle: "SaaS Platform • 2023",
-    duration: "Jan 2023 - Jun 2023",
-    points: [
-      "Developed a drag-and-drop portfolio builder enabling users to create websites without coding",
-      "Created visual editor with pre-designed templates and fully customizable components",
-      "Implemented automatic responsive design ensuring portfolios look great on all devices",
-      "Built content management system for projects, skills, experience, and contact information",
-      "Integrated SEO optimization tools and analytics for tracking portfolio performance"
-    ],
-    link: "#project/portfolio-builder",
-    githubLink: `${SOCIAL_LINKS.github}/portfolio-builder`,
-    technologies: ["React", "Next.js", "Tailwind CSS", "Prisma", "PostgreSQL", "AWS S3"],
-    useModal: true
-  },
-  {
-    image: "https://picsum.photos/id/201/800/450",
-    title: "Fitness Tracking Platform",
-    subtitle: "Health & Wellness App • 2022",
-    duration: "Aug 2022 - Dec 2022",
-    points: [
-      "Created a comprehensive fitness tracking application with workout planning and nutrition tracking",
-      "Developed calorie and macro tracking system with extensive food database",
-      "Built progress analytics with detailed charts, statistics, and goal tracking features",
-      "Implemented social features allowing users to share achievements and compete with friends",
-      "Integrated with Fitbit API and Apple HealthKit for seamless device synchronization"
-    ],
-    link: "#project/fitness-tracker",
-    githubLink: `${SOCIAL_LINKS.github}/fitness-tracker`,
-    technologies: ["Vue.js", "Python", "FastAPI", "MongoDB", "D3.js", "Fitbit API", "Apple HealthKit"],
+    link: "#project/product-packaging",
+    githubLink: "https://github.com/noob-starter",
+    technologies: ["SQL", "JavaScript", "HTML5", "CSS3"],
     useModal: true
   }
 ];
 
 export const defaultContacts = [
   {
-    title: "Email",
-    subtitle: "pratik.yawalkar@example.com • contact@pratik.dev",
-    image: "https://picsum.photos/id/1002/800/450",
-    url: "mailto:pratik.yawalkar@example.com"
-  },
-  {
-    title: "Phone",
-    subtitle: "+1 (555) 123-4567 • +1 (555) 987-6543",
-    image: "https://picsum.photos/id/1003/800/450",
-    url: "tel:+15551234567"
-  },
-  {
-    title: "Location",
-    subtitle: "San Francisco, CA • United States",
-    image: "https://picsum.photos/id/1004/800/450",
-    url: "https://maps.google.com/?q=San+Francisco,+CA"
-  },
-  {
-    title: "Working Hours",
-    subtitle: "Monday - Friday: 9:00 AM - 6:00 PM • Weekend: By appointment",
-    image: "https://picsum.photos/id/1005/800/450",
-    url: "#contact"
-  },
-  {
     title: "LinkedIn",
-    subtitle: "Connect with me professionally",
-    image: "https://picsum.photos/id/180/800/450",
-    url: "https://linkedin.com/in/pratik-yawalkar"
+    subtitle: "Professional networking and career development",
+    image: "https://github.com/noob-starter/portfoliojava/blob/main/urls/banners/languages/linkedin.png",
+    url: "https://www.linkedin.com/in/pratik-yawalkar"
   },
   {
     title: "GitHub",
-    subtitle: "Check out my projects and code",
-    image: "https://picsum.photos/id/0/800/450",
-    url: "https://github.com/pratik-yawalkar"
+    subtitle: "Open source projects and code repositories",
+    image: "https://github.com/noob-starter/portfoliojava/blob/main/urls/banners/languages/github.png",
+    url: "https://github.com/noob-starter"
   },
   {
-    title: "Twitter",
-    subtitle: "Follow me for tech updates",
-    image: "https://picsum.photos/id/119/800/450",
-    url: "https://twitter.com/pratik_yawalkar"
+    title: "Location",
+    subtitle: "Nagpur, India • Open for Remote and Onsite",
+    image: "https://github.com/noob-starter/portfoliojava/blob/main/urls/banners/languages/location.png",
+    url: "https://maps.app.goo.gl/kzAK39WxDgD2sUWy9"
+  },
+  {
+    title: "Email",
+    subtitle: "pratikyawalkar71@gmail.com",
+    image: "https://github.com/noob-starter/portfoliojava/blob/main/urls/banners/languages/email.png",
+    url: "mailto:pratikyawalkar71@gmail.com"
+  },
+  {
+    title: "Working Hours",
+    subtitle: "Standard 9:30 to 15:30 hours (Flexible)",
+    image: "https://github.com/noob-starter/portfoliojava/blob/main/urls/banners/languages/workinghours.png",
+    url: "#contact"
   },
   {
     title: "Instagram",
-    subtitle: "See my visual journey",
-    image: "https://picsum.photos/id/1/800/450",
-    url: "https://instagram.com/pratik.yawalkar"
+    subtitle: "Connect with me personally",
+    image: "https://github.com/noob-starter/portfoliojava/blob/main/urls/banners/languages/instagram.png",
+    url: "https://www.instagram.com/yawalkar.pratik_370"
+  },
+  {
+    title: "Phone",
+    subtitle: "+91-7016621949",
+    image: "https://github.com/noob-starter/portfoliojava/blob/main/urls/banners/languages/phone.png",
+    url: "tel:+917016621949"
   }
 ];
 
 export const defaultAddresses = [
   {
-    type: "Office",
-    street: "123 Tech Street",
-    landmark: "Near Innovation Park",
-    city: "San Francisco",
-    state: "California",
-    country: "United States",
-    pincode: "94102",
-    email: "office@pratik.dev",
-    phone: "+1 (555) 123-4567",
-    url: "https://picsum.photos/id/1006/800/450"
-  },
-  {
     type: "Home",
-    street: "456 Residence Avenue",
-    landmark: null,
-    city: "Palo Alto",
-    state: "California",
-    country: "United States",
-    pincode: "94301",
-    email: "pratik.yawalkar@example.com",
-    phone: "+1 (555) 987-6543",
-    url: "https://picsum.photos/id/1007/800/450"
+    street: "33, Ingle Layout, Bhamti Ring Road",
+    landmark: "Near Nageshwar Mandir",
+    city: "Nagpur",
+    state: "Maharashtra",
+    country: "India",
+    pincode: "440022",
+    email: "pratikyawalkar71@gmail.com",
+    phone: "+91-7016621949",
+    url: "https://maps.app.goo.gl/kzAK39WxDgD2sUWy9"
   }
 ];
