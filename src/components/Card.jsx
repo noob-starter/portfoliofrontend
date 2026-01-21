@@ -34,7 +34,7 @@ const Card = ({ title, subtitle, duration, description, image, label,
               alt={title}
               className="object-cover transform-gpu origin-center
               transition-transform duration-400 ease-in-out group-hover:scale-110"
-              style={{ width: '80%', height: '80%' }}
+              style={{ width: '50%', height: '50%' }}
             />
           </figure>
         )}
