@@ -28,11 +28,11 @@ const Card = ({ title, subtitle, duration, description, image, label,
       <div className="article-wrapper flex-1 flex flex-col relative z-10">
 
         {image && (
-          <figure className="m-0 p-0 aspect-video overflow-hidden">
+          <figure className="m-0 p-0 aspect-video overflow-hidden flex justify-center items-center">
             <img 
               src={image} 
               alt={title}
-              className="max-w-full h-full w-full object-cover transform-gpu origin-center
+              className="h-full w-[75%] object-cover transform-gpu origin-center
               transition-transform duration-400 ease-in-out group-hover:scale-110"
             />
           </figure>
