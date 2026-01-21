@@ -1,7 +1,7 @@
 // Utility function to map API education data to component format
 // This transforms the backend API structure to match the Card component's expected props
 
-import { joinContentUsingSeperator } from '../utils/helper';
+import { joinContentUsingSeperator, processImageUrl } from '../utils/helper';
 
 /**
  * Maps a single education object from API format to Card component format
@@ -35,7 +35,7 @@ export const mapEducation = (edu) => {
     duration: duration,
     description: edu.description,
     link: edu.url,
-    image: edu.banner,
+    image: processImageUrl(edu.banner),
     githubLink: edu.github,
     useModal: true  
   };

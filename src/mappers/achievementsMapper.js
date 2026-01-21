@@ -1,7 +1,7 @@
 // Utility function to map API achievement data to component format
 // This transforms the backend API structure to match the Card component's expected props
 
-import { joinContentUsingSeperator } from '../utils/helper';
+import { joinContentUsingSeperator, processImageUrl } from '../utils/helper';
 
 /**
  * Maps a single achievement object from API format to Card component format
@@ -19,7 +19,7 @@ export const mapAchievement = (achievement) => {
     subtitle: subtitle,
     description: achievement.description,
     link: achievement.url,
-    image: achievement.banner,
+    image: processImageUrl(achievement.banner),
     githubLink: achievement.github,
     useModal: true  
   };

@@ -1,7 +1,7 @@
 // Utility function to map API experience data to component format
 // This transforms the backend API structure to match the Card component's expected props
 
-import { joinContentUsingSeperator } from '../utils/helper';
+import { joinContentUsingSeperator, processImageUrl } from '../utils/helper';
 
 /**
  * Maps a single experience object from API format to Card component format
@@ -31,7 +31,7 @@ export const mapExperience = (exp) => {
     subtitle: exp.position,
     duration: duration,
     link: exp.url,
-    image: exp.banner,
+    image: processImageUrl(exp.banner),
     githubLink: exp.github,
     points: points,  
     technologies: technologies,  

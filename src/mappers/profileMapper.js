@@ -1,6 +1,8 @@
 // Utility function to map API profile data to component format
 // This transforms the backend API structure to match the Home component's expected profile props
 
+import { processImageUrl } from '../utils/helper';
+
 /**
  * Maps a single profile object from API format to Home component format
  * @param {Object} profile - Profile object from API
@@ -12,7 +14,7 @@ export const mapProfile = (profile) => {
     : [];
 
   const mappedProfile = {
-    banner: profile.banner || '',
+    banner: processImageUrl(profile.banner) || '',
     firstName: profile.fname || '',
     lastName: profile.lname || '',
     intro: profile.intro || '',

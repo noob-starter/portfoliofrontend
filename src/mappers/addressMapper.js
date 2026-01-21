@@ -1,7 +1,7 @@
 // Utility function to map API address data to component format
 // This transforms the backend API structure to match the Card component's expected props
 
-import { joinContentUsingSeperator } from '../utils/helper';
+import { joinContentUsingSeperator, processImageUrl } from '../utils/helper';
 
 /**
  * Maps a single address object from API format to Card component format
@@ -37,7 +37,7 @@ export const mapAddress = (address) => {
   const mappedAddress = {
     title: address.type ? `${address.type} Address` : 'Address',  
     subtitle: subtitle,                                            
-    image: address.url,                                            
+    image: processImageUrl(address.url),                                            
     hideMoreButton: true                                           
   };
   

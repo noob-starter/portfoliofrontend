@@ -1,7 +1,7 @@
 // Utility function to map API technologies data to component format
 // This transforms the backend API structure to match the Card component's expected props
 
-import { joinContentUsingSeperator } from '../utils/helper';
+import { joinContentUsingSeperator, processImageUrl } from '../utils/helper';
 
 /**
  * Maps a single technology object from API format to Card component format
@@ -15,7 +15,7 @@ export const mapTechnology = (tech) => {
   );
 
   const mappedTechnology = {
-    image: tech.banner,
+    image: processImageUrl(tech.banner),
     title: tech.name,
     subtitle: subtitle,
     description: tech.description || '',

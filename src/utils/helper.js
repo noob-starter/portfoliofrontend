@@ -25,3 +25,36 @@ export const joinContentUsingSeperator = (content, separator) => {
 };
 
 
+export const convertGitHubUrlToRaw = (url) => {
+  if (!url) return url;
+  
+  // If it's already a raw URL, return as is
+  if (url.includes('raw.githubusercontent.com')) {
+    return url;
+  }
+  
+  // Convert blob URLs to raw URLs
+  if (url.includes('github.com') && url.includes('/blob/')) {
+    return url
+      .replace('github.com', 'raw.githubusercontent.com')
+      .replace('/blob/', '/');
+  }
+  
+  // Return original URL if it doesn't match GitHub patterns
+  return url;
+};
+
+export const processImageUrl = (imageUrl) => {
+  // Handle null, undefined, or empty string
+  if (!imageUrl) return imageUrl;
+  
+  // Convert GitHub URLs only
+  if (imageUrl.includes('github.com')) {
+    return convertGitHubUrlToRaw(imageUrl);
+  }
+  
+  // Return all other URLs/text unchanged
+  return imageUrl;
+};
+
+

@@ -1,7 +1,7 @@
 // Utility function to map API project data to component format
 // This transforms the backend API structure to match the Card component's expected props
 
-import { joinContentUsingSeperator } from '../utils/helper';
+import { joinContentUsingSeperator, processImageUrl } from '../utils/helper';
 
 /**
  * Maps a single project object from API format to Card component format
@@ -32,7 +32,7 @@ export const mapProject = (project) => {
     duration: dateRange,
     description: project.description,
     link: project.url,
-    image: project.banner,
+    image: processImageUrl(project.banner),
     githubLink: project.github,
     points: points,  
     technologies: technologies,  
