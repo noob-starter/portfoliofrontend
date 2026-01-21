@@ -28,15 +28,16 @@ const Card = ({ title, subtitle, duration, description, image, label,
       <div className="article-wrapper flex-1 flex flex-col relative z-10">
 
         {image && (
-          <figure className="m-0 p-0 aspect-video overflow-hidden flex justify-center items-center">
-            <img 
-              src={image} 
-              alt={title}
-              className="object-cover transform-gpu origin-center
-              transition-transform duration-400 ease-in-out group-hover:scale-110"
-              style={{ width: '75%', height: '100%' }}
-            />
-          </figure>
+          <div className="flex justify-center items-center w-full">
+            <figure className="m-0 p-0 aspect-video overflow-hidden" style={{ width: '75%' }}>
+              <img 
+                src={image} 
+                alt={title}
+                className="w-full h-full object-cover transform-gpu origin-center
+                transition-transform duration-400 ease-in-out group-hover:scale-110"
+              />
+            </figure>
+          </div>
         )}
         
         <div className="article-body pt-4 flex-1 flex flex-col">
