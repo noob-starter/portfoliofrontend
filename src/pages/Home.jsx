@@ -45,7 +45,7 @@ const Home = () => {
   const generateRoles = (titles) => {
     const baseLeft = 8;        // Starting left position
     const leftIncrement = 2;   // Increment for left position per role
-    const baseTop = 35;        // Starting top position
+    const baseTop = 25;        // Starting top position
     const topIncrement = 7;    // Increment for top position per role
     const baseDelay = 0.3;     // Starting delay
     const delayIncrement = 0.2; // Increment for delay
