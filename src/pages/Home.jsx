@@ -135,7 +135,7 @@ const Home = () => {
           transition={{ duration: 1.5, ease: "easeOut" }}
         >
           <img
-            src={profileData.banner || profileImage}
+            src={profileImage}
             alt="Profile"
             className="w-full h-full object-cover object-top lg:object-contain lg:object-center lg:scale-85 face-border"
           />
