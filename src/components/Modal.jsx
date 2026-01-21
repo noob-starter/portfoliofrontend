@@ -62,7 +62,7 @@ const Modal = ({ isOpen, onClose, title, subtitle, duration, description, image,
         <div className="flex flex-col h-full overflow-y-auto" style={{ scrollbarWidth: 'thin', scrollbarColor: '#44BCFF #f1f1f1' }}>
           {image && (
             <div className="w-full flex justify-center items-center">
-              <figure className="m-0 p-0 rounded-t-xl overflow-hidden flex-shrink-0" style={{ width: '75%' }}>
+              <figure className="m-0 p-0 rounded-t-xl overflow-hidden flex-shrink-0" style={{ width: '40%' }}>
                 <img 
                   src={image} 
                   alt={title}

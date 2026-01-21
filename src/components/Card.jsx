@@ -29,7 +29,7 @@ const Card = ({ title, subtitle, duration, description, image, label,
 
         {image && (
           <div className="flex justify-center items-center w-full">
-            <figure className="m-0 p-0 aspect-video overflow-hidden" style={{ width: '75%' }}>
+            <figure className="m-0 p-0 aspect-video overflow-hidden" style={{ width: '40%' }}>
               <img 
                 src={image} 
                 alt={title}
