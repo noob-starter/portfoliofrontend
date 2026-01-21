@@ -1,0 +1,170 @@
+# =============================================================================
+# DEPENDENCIES
+# =============================================================================
+# Node modules
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# =============================================================================
+# BUILD OUTPUT
+# =============================================================================
+dist/
+dist-ssr/
+build/
+*.local
+
+# =============================================================================
+# ENVIRONMENT VARIABLES
+# =============================================================================
+# Local environment files (keep .env.example)
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# =============================================================================
+# EDITOR & IDE
+# =============================================================================
+# VSCode
+.vscode/
+!.vscode/extensions.json
+!.vscode/settings.json
+
+# Cursor
+.cursor/
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*.swp
+*.swo
+*~
+
+# Emacs
+*~
+\#*\#
+.\#*
+
+# =============================================================================
+# OPERATING SYSTEM
+# =============================================================================
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+.directory
+.Trash-*
+
+# =============================================================================
+# TESTING & COVERAGE
+# =============================================================================
+coverage/
+*.lcov
+.nyc_output/
+test-results/
+playwright-report/
+*.spec.js.snap
+
+# =============================================================================
+# LOGS
+# =============================================================================
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# =============================================================================
+# TEMPORARY FILES
+# =============================================================================
+*.tmp
+*.temp
+*.cache
+.cache/
+.parcel-cache/
+.vite/
+.eslintcache
+.stylelintcache
+
+# =============================================================================
+# LIGHTHOUSE & PERFORMANCE
+# =============================================================================
+.lighthouseci/
+lighthouse-report.html
+lighthouse-report.json
+
+# =============================================================================
+# MISCELLANEOUS
+# =============================================================================
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Optional stylelint cache
+.stylelintcache
+
+# Yarn Integrity file
+.yarn-integrity
+
+# dotenv environment variable files
+.env.backup
+
+# Lock files (uncomment if you want to ignore them)
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
+
+# Vercel
+.vercel
+
+# Turborepo
+.turbo
+
+# Archives
+*.zip
+*.tar.gz
+*.rar
+
+# Certificates
+*.pem
+*.key
+*.crt
+
+# =============================================================================
+# PROJECT SPECIFIC
+# =============================================================================
+# Add any project-specific ignore patterns below
+# Example:
+# /public/uploads/
+# /src/config/local.js

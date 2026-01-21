@@ -1,0 +1,191 @@
+@import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@300;400;500;700;800&display=swap');
+
+@import "tailwindcss";
+
+/* Custom Font - Getaway Car */
+@font-face {
+  font-family: 'Getaway Car';
+  src: url('/fonts/PGR Getaway Car.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Alegreya Sans', sans-serif;
+  font-size: 14px;
+  background-color: #ffffff; /* colors.background.primary */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.hide-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+/* Glassmorphism utility classes */
+.glass-card {
+  position: relative;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.05));
+  box-shadow: 0 0.25em 0.375em hsla(0, 0%, 0%, 0.1);
+  padding: 1.5rem;
+}
+
+.glass-card::before,
+.glass-card::after {
+  border-radius: inherit;
+  content: "";
+  display: block;
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.glass-card::before {
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  mask-image: linear-gradient(135deg, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0) 50%);
+  -webkit-mask-image: linear-gradient(135deg, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0) 50%);
+}
+
+.glass-card::after {
+  border: 1px solid rgba(68, 255, 127, 0.5);
+  mask-image: linear-gradient(135deg, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 1));
+  -webkit-mask-image: linear-gradient(135deg, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 1));
+}
+
+.glass-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.glass {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.1));
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1),
+              inset 0 1px 0 0 rgba(255, 255, 255, 0.5);
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Screen reader only - visually hidden but accessible */
+.sr-only:not(:focus):not(:active) {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+/* Face border effect */
+.face-border {
+  filter: drop-shadow(0 0 20px #028a0f); /* colors.theme.green */
+}
+
+/* Shine effect animation */
+@keyframes shine {
+  0% {
+    background-position: 200% center;
+  }
+  100% {
+    background-position: -200% center;
+  }
+}
+
+.shine-text {
+  background: linear-gradient(
+    90deg,
+    #1f2937 0%, /* colors.text.primary */
+    #1f2937 40%,
+    #ffffff 50%, /* colors.background.primary */
+    #1f2937 60%,
+    #1f2937 100%
+  );
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 5s linear infinite;
+}
+
+/* Loading animation */
+.loading-container {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background: #d3d4d3; /* colors.background.tertiary */
+}
+
+.loading-text {
+  place-self: center;
+  background: linear-gradient(90deg, #44BCFF, #99edc3, #028a0f) -100%/ 200%; /* colors.theme.blue, colors.theme.mint, colors.theme.green */
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font: 900 clamp(2em, 10vw, 10em) exo, sans-serif;
+  animation: shimmer 2s linear infinite reverse;
+}
+
+@keyframes shimmer { 
+  to { 
+    background-position: 100%; 
+  } 
+}
+
+/* Scroll progress bar shimmer */
+@keyframes shimmer-progress {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.animate-shimmer {
+  animation: shimmer-progress 2s infinite;
+}
+
+/* Modal animations */
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes slideLeftRight {
+  0% {
+    transform: translateX(-10px);
+  }
+  100% {
+    transform: translateX(10px);
+    scale: 1.2;
+  }
+}
