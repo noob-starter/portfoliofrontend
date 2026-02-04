@@ -19,7 +19,7 @@ const Card = ({ title, subtitle, duration, description, image, label,
   };
 
   return (
-    <article className="glass-card relative rounded-sm transform-gpu transition-all duration-400
+    <article className="glass-card relative rounded-2xl transform-gpu transition-all duration-400
     ease-in-out overflow-hidden group min-w-[350px] max-w-[350px] flex flex-col
     bg-white/10 backdrop-blur-lg border border-white/20 
     shadow-[0_8px_32px_0_rgba(31,38,135,0.37)]
@@ -28,11 +28,11 @@ const Card = ({ title, subtitle, duration, description, image, label,
       <div className="article-wrapper flex-1 flex flex-col relative z-10">
 
         {image && (
-          <figure className="m-0 p-0 aspect-video overflow-hidden">
+          <figure className="m-0 p-0 aspect-video overflow-hidden rounded-t-2xl">
             <img 
               src={image} 
               alt={title}
-              className="max-w-full h-full w-full object-cover transform-gpu origin-center
+              className="max-w-full h-48 w-full object-cover transform-gpu origin-center
               transition-transform duration-400 ease-in-out group-hover:scale-110"
             />
           </figure>

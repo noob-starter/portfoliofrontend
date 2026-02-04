@@ -21,6 +21,11 @@ body {
   font-family: 'Alegreya Sans', sans-serif;
   font-size: 14px;
   background-color: #ffffff; /* colors.background.primary */
+  transition: background-color 0.3s ease;
+}
+
+body.dark {
+  background-color: #0a0a0a; /* colors.darkBackground.primary */
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */
@@ -79,6 +84,14 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.3);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1),
               inset 0 1px 0 0 rgba(255, 255, 255, 0.5);
+  transition: background 0.3s ease, border 0.3s ease;
+}
+
+.dark .glass {
+  background: linear-gradient(135deg, rgba(26, 26, 26, 0.4), rgba(26, 26, 26, 0.1));
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3),
+              inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
 }
 
 /* Smooth scrolling */

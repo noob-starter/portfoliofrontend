@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import Button from './Button';
+import ThemeToggle from './ThemeToggle';
+import { useTheme } from '../context/ThemeContext';
 import DownloadIcon from '../assets/icons/download.png';
 import MenuIcon from '../assets/icons/menu.png';
 import CloseIcon from '../assets/icons/cancel.png';
@@ -11,6 +13,7 @@ import colors from '../theme/colors.js';
 const Navbar = () => {
   const location = useLocation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { isDarkMode } = useTheme();
 
   const isActive = (path) => location.pathname === path;
 
@@ -22,9 +25,18 @@ const Navbar = () => {
     setIsMobileMenuOpen(false);
   };
 
+  // Get theme-aware colors
+  const themeColors = {
+    background: isDarkMode ? colors.darkBackground : colors.background,
+    text: isDarkMode ? colors.darkText : colors.text,
+  };
+
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 glass shadow-sm"
-         style={{ borderBottom: `2.5px solid ${colors.ui.black}` }}>
+         style={{ 
+           borderBottom: `2.5px solid ${colors.ui.black}`,
+           backgroundColor: isDarkMode ? colors.darkBackground.glass : colors.background.glass
+         }}>
       <div className="w-full px-4 md:px-6 lg:px-8 relative flex items-center md:justify-center"
            style={{ minHeight: '50px' }}>
 
@@ -35,13 +47,18 @@ const Navbar = () => {
             <img src={PortfolioIcon} alt="Portfolio" className="w-12 h-8 md:w-15 md:h-10 lg:w-18 lg:h-12" />
           </div>
           <div className="flex flex-col">
-            <span className="text-base md:text-lg lg:text-xl font-bold text-text-primary leading-tight">Portfolio</span>
+            <span className="text-base md:text-lg lg:text-xl font-bold leading-tight" 
+                  style={{ color: themeColors.text.primary }}>Portfolio</span>
           </div>
         </Link>
 
 
         <div className="absolute left-1/2 transform -translate-x-1/2 md:absolute md:left-auto md:right-8 lg:right-12 xl:right-24
-        md:transform-none">
+        md:transform-none flex items-center gap-4">
+          {/* Theme Toggle - Hidden on mobile */}
+          <div className="hidden md:flex">
+            <ThemeToggle />
+          </div>
           <Button
             href={ResumeFile}
             download="latest_resume.pdf"
@@ -70,14 +87,14 @@ const Navbar = () => {
         <div className="hidden md:inline-flex items-center justify-center gap-8 lg:gap-12 xl:gap-16 2xl:gap-24">
           <Link
             to="/"
-            className={`text-text-primary hover:text-text-secondary text-base xl:text-lg transition-all
+            className={`hover:text-text-secondary text-base xl:text-lg transition-all
             whitespace-nowrap px-4 xl:px-8 py-3 relative ${
               isActive('/') ? 'font-bold' : 'font-medium'
             }`}
-            style={isActive('/') ? {
-              position: 'relative',
-              zIndex: 10
-            } : {}}
+            style={{
+              color: themeColors.text.primary,
+              ...(isActive('/') ? { position: 'relative', zIndex: 10 } : {})
+            }}
           >
             Home
             {isActive('/') && (
@@ -95,14 +112,14 @@ const Navbar = () => {
           </Link>
           <Link
             to="/project"
-            className={`text-text-primary hover:text-text-secondary text-base xl:text-lg transition-all
+            className={`hover:text-text-secondary text-base xl:text-lg transition-all
             whitespace-nowrap px-4 xl:px-8 py-3 relative ${
               isActive('/project') ? 'font-bold' : 'font-medium'
             }`}
-            style={isActive('/project') ? {
-              position: 'relative',
-              zIndex: 10
-            } : {}}
+            style={{
+              color: themeColors.text.primary,
+              ...(isActive('/project') ? { position: 'relative', zIndex: 10 } : {})
+            }}
           >
             Project
             {isActive('/project') && (
@@ -120,14 +137,14 @@ const Navbar = () => {
           </Link>
           <Link
             to="/contact"
-            className={`text-text-primary hover:text-text-secondary text-base xl:text-lg transition-all
+            className={`hover:text-text-secondary text-base xl:text-lg transition-all
             whitespace-nowrap px-4 xl:px-8 py-3 relative ${
               isActive('/contact') ? 'font-bold' : 'font-medium'
             }`}
-            style={isActive('/contact') ? {
-              position: 'relative',
-              zIndex: 10
-            } : {}}
+            style={{
+              color: themeColors.text.primary,
+              ...(isActive('/contact') ? { position: 'relative', zIndex: 10 } : {})
+            }}
           >
             Contact
             {isActive('/contact') && (
@@ -145,14 +162,14 @@ const Navbar = () => {
           </Link>
           <Link
             to="/inquire"
-            className={`text-text-primary hover:text-text-secondary text-base xl:text-lg transition-all
+            className={`hover:text-text-secondary text-base xl:text-lg transition-all
             whitespace-nowrap px-4 xl:px-8 py-3 relative ${
               isActive('/inquire') ? 'font-bold' : 'font-medium'
             }`}
-            style={isActive('/inquire') ? {
-              position: 'relative',
-              zIndex: 10
-            } : {}}
+            style={{
+              color: themeColors.text.primary,
+              ...(isActive('/inquire') ? { position: 'relative', zIndex: 10 } : {})
+            }}
           >
             Inquire
             {isActive('/inquire') && (
@@ -177,51 +194,59 @@ const Navbar = () => {
           isMobileMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
         }`}
         style={{
-          borderTop: isMobileMenuOpen ? `1px solid ${colors.ui.black}20` : 'none'
+          borderTop: isMobileMenuOpen ? `1px solid ${colors.ui.black}20` : 'none',
+          backgroundColor: isDarkMode ? colors.darkBackground.glass : colors.background.glass
         }}
       >
         <div className="flex flex-col py-4 px-6 space-y-2">
+          {/* Theme Toggle - Visible only on mobile */}
+          <div className="flex items-center justify-between py-3 px-8 rounded-lg">
+            <span className="font-medium text-lg" style={{ color: themeColors.text.primary }}>
+              Theme
+            </span>
+            <ThemeToggle />
+          </div>
           <Link
             to="/"
             onClick={closeMobileMenu}
-            className={`text-text-primary hover:text-text-secondary text-lg transition-all
+            className={`hover:text-text-secondary text-lg transition-all
             py-3 rounded-lg ${
               isActive('/') ? 'font-bold bg-brand-teal-light bg-opacity-10' : 'font-medium'
             }`}
-            style={{ paddingLeft: '2rem', paddingRight: '1rem' }}
+            style={{ paddingLeft: '2rem', paddingRight: '1rem', color: themeColors.text.primary }}
           >
             Home
           </Link>
           <Link
             to="/project"
             onClick={closeMobileMenu}
-            className={`text-text-primary hover:text-text-secondary text-lg transition-all
+            className={`hover:text-text-secondary text-lg transition-all
             py-3 rounded-lg ${
               isActive('/project') ? 'font-bold bg-brand-teal-light bg-opacity-10' : 'font-medium'
             }`}
-            style={{ paddingLeft: '2rem', paddingRight: '1rem' }}
+            style={{ paddingLeft: '2rem', paddingRight: '1rem', color: themeColors.text.primary }}
           >
             Project
           </Link>
           <Link
             to="/contact"
             onClick={closeMobileMenu}
-            className={`text-text-primary hover:text-text-secondary text-lg transition-all
+            className={`hover:text-text-secondary text-lg transition-all
             py-3 rounded-lg ${
               isActive('/contact') ? 'font-bold bg-brand-teal-light bg-opacity-10' : 'font-medium'
             }`}
-            style={{ paddingLeft: '2rem', paddingRight: '1rem' }}
+            style={{ paddingLeft: '2rem', paddingRight: '1rem', color: themeColors.text.primary }}
           >
             Contact
           </Link>
           <Link
             to="/inquire"
             onClick={closeMobileMenu}
-            className={`text-text-primary hover:text-text-secondary text-lg transition-all
+            className={`hover:text-text-secondary text-lg transition-all
             py-3 rounded-lg ${
               isActive('/inquire') ? 'font-bold bg-brand-teal-light bg-opacity-10' : 'font-medium'
             }`}
-            style={{ paddingLeft: '2rem', paddingRight: '1rem' }}
+            style={{ paddingLeft: '2rem', paddingRight: '1rem', color: themeColors.text.primary }}
           >
             Inquire
           </Link>

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { colors } from '../theme/colors';
+import { useTheme } from '../context/ThemeContext';
 import Button from '../components/Button';
 import {
   sanitizeInput,
@@ -28,6 +29,13 @@ const Inquire = () => {
   const [errors, setErrors] = useState({});
   const [successMessage, setSuccessMessage] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const { isDarkMode } = useTheme();
+
+  // Get theme-aware colors
+  const themeColors = {
+    background: isDarkMode ? colors.darkBackground : colors.background,
+    text: isDarkMode ? colors.darkText : colors.text,
+  };
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -158,7 +166,7 @@ const Inquire = () => {
   ];
 
   return (
-    <div className="min-h-screen" style={{ backgroundColor: colors.background.tertiary }}>
+    <div className="min-h-screen" style={{ backgroundColor: themeColors.background.tertiary }}>
       {/* Hero Section */}
       <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden pt-20">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-pearl-50 to-green-50"></div>
@@ -219,7 +227,8 @@ const Inquire = () => {
           >
             <div className="text-center mb-16 px-6">
               <motion.h2
-                className="text-5xl font-bold text-gray-800 mb-6"
+                className="text-5xl font-bold mb-6"
+                style={{ color: themeColors.text.primary }}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: false }}
@@ -228,7 +237,8 @@ const Inquire = () => {
                 Get in Touch
               </motion.h2>
               <motion.p
-                className="text-xl text-gray-700 leading-relaxed max-w-3xl mx-auto"
+                className="text-xl leading-relaxed max-w-3xl mx-auto"
+                style={{ color: themeColors.text.secondary }}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: false }}
@@ -260,8 +270,8 @@ const Inquire = () => {
                 transition={{ duration: 0.6 }}
               >
                 <motion.h3
-                  className="text-3xl font-bold text-gray-800 mb-8"
-                  style={{ marginBottom: '2rem', textAlign: 'center' }}
+                  className="text-3xl font-bold mb-8"
+                  style={{ marginBottom: '2rem', textAlign: 'center', color: themeColors.text.primary }}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: false }}
@@ -296,8 +306,8 @@ const Inquire = () => {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6" style={{ gap: '1.5rem',
                       marginBottom: '1rem' }}>
                     <div style={{ padding: '0.5rem 0' }}>
-                      <label className="block text-sm font-semibold text-gray-700 mb-2"
-                             style={{ marginBottom: '0.75rem', paddingLeft: '0.25rem' }}>
+                      <label className="block text-sm font-semibold mb-2"
+                             style={{ marginBottom: '0.75rem', paddingLeft: '0.25rem', color: themeColors.text.secondary }}>
                         First Name <span className="text-red-500">*</span>
                       </label>
                       <input
@@ -305,13 +315,17 @@ const Inquire = () => {
                         name="firstName"
                         value={formData.firstName}
                         onChange={handleInputChange}
-                        className={`w-full px-4 py-3 rounded-xl bg-white/50 border
+                        className={`w-full px-4 py-3 rounded-xl border
                         ${errors.firstName ? 'border-red-500' : 'border-gray-200'}
                         focus:outline-none focus:ring-2
                         ${errors.firstName ? 'focus:ring-red-300' : 'focus:ring-purple-300'}
                         transition-all`}
+                        style={{ 
+                          padding: '0.875rem 1rem',
+                          backgroundColor: isDarkMode ? 'rgba(42, 42, 42, 0.5)' : 'rgba(255, 255, 255, 0.5)',
+                          color: themeColors.text.primary
+                        }}
                         placeholder="Pratik"
-                        style={{ padding: '0.875rem 1rem' }}
                         maxLength="50"
                       />
                       {errors.firstName && (
@@ -320,8 +334,8 @@ const Inquire = () => {
                     </div>
 
                     <div style={{ padding: '0.5rem 0' }}>
-                      <label className="block text-sm font-semibold text-gray-700 mb-2"
-                             style={{ marginBottom: '0.75rem', paddingLeft: '0.25rem' }}>
+                      <label className="block text-sm font-semibold mb-2"
+                             style={{ marginBottom: '0.75rem', paddingLeft: '0.25rem', color: themeColors.text.secondary }}>
                         Last Name <span className="text-red-500">*</span>
                       </label>
                       <input
@@ -329,13 +343,17 @@ const Inquire = () => {
                         name="lastName"
                         value={formData.lastName}
                         onChange={handleInputChange}
-                        className={`w-full px-4 py-3 rounded-xl bg-white/50 border
+                        className={`w-full px-4 py-3 rounded-xl border
                         ${errors.lastName ? 'border-red-500' : 'border-gray-200'}
                         focus:outline-none focus:ring-2
                         ${errors.lastName ? 'focus:ring-red-300' : 'focus:ring-purple-300'}
                         transition-all`}
+                        style={{ 
+                          padding: '0.875rem 1rem',
+                          backgroundColor: isDarkMode ? 'rgba(42, 42, 42, 0.5)' : 'rgba(255, 255, 255, 0.5)',
+                          color: themeColors.text.primary
+                        }}
                         placeholder="Yawalkar"
-                        style={{ padding: '0.875rem 1rem' }}
                         maxLength="50"
                       />
                       {errors.lastName && (
@@ -345,8 +363,8 @@ const Inquire = () => {
                   </div>
 
                   <div style={{ padding: '0.5rem 0', marginBottom: '1rem' }}>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2"
-                           style={{ marginBottom: '0.75rem', paddingLeft: '0.25rem' }}>
+                    <label className="block text-sm font-semibold mb-2"
+                           style={{ marginBottom: '0.75rem', paddingLeft: '0.25rem', color: themeColors.text.secondary }}>
                       Email Address <span className="text-red-500">*</span>
                     </label>
                     <input
@@ -354,13 +372,17 @@ const Inquire = () => {
                       name="email"
                       value={formData.email}
                       onChange={handleInputChange}
-                      className={`w-full px-4 py-3 rounded-xl bg-white/50 border
+                      className={`w-full px-4 py-3 rounded-xl border
                       ${errors.email ? 'border-red-500' : 'border-gray-200'}
                       focus:outline-none focus:ring-2
                       ${errors.email ? 'focus:ring-red-300' : 'focus:ring-purple-300'}
                       transition-all`}
+                      style={{ 
+                        padding: '0.875rem 1rem',
+                        backgroundColor: isDarkMode ? 'rgba(42, 42, 42, 0.5)' : 'rgba(255, 255, 255, 0.5)',
+                        color: themeColors.text.primary
+                      }}
                       placeholder="pratik.yawalkar@gmail.com"
-                      style={{ padding: '0.875rem 1rem' }}
                       maxLength="100"
                     />
                     {errors.email && (
@@ -369,8 +391,8 @@ const Inquire = () => {
                   </div>
 
                   <div style={{ padding: '0.5rem 0', marginBottom: '1rem' }}>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2"
-                           style={{ marginBottom: '0.75rem', paddingLeft: '0.25rem' }}>
+                    <label className="block text-sm font-semibold mb-2"
+                           style={{ marginBottom: '0.75rem', paddingLeft: '0.25rem', color: themeColors.text.secondary }}>
                       Tell me about your project <span className="text-red-500">*</span>
                     </label>
                     <textarea
@@ -378,19 +400,23 @@ const Inquire = () => {
                       value={formData.message}
                       onChange={handleInputChange}
                       rows="5"
-                      className={`w-full px-4 py-3 rounded-xl bg-white/50 border
+                      className={`w-full px-4 py-3 rounded-xl border
                       ${errors.message ? 'border-red-500' : 'border-gray-200'}
                       focus:outline-none focus:ring-2
                       ${errors.message ? 'focus:ring-red-300' : 'focus:ring-purple-300'}
                       transition-all resize-none`}
+                      style={{ 
+                        padding: '1rem',
+                        backgroundColor: isDarkMode ? 'rgba(42, 42, 42, 0.5)' : 'rgba(255, 255, 255, 0.5)',
+                        color: themeColors.text.primary
+                      }}
                       placeholder="Share your ideas, goals, and what you're looking to achieve with me..."
-                      style={{ padding: '1rem' }}
                       maxLength="1000"
                     ></textarea>
                     {errors.message && (
                       <p className="text-red-500 text-sm mt-1">{errors.message}</p>
                     )}
-                    <p className="text-gray-500 text-xs mt-1">
+                    <p className="text-xs mt-1" style={{ color: themeColors.text.muted }}>
                       {formData.message.length}/1000 characters
                     </p>
                   </div>
@@ -411,7 +437,8 @@ const Inquire = () => {
                     />
                   </div>
 
-                  <p className="text-center text-sm text-gray-500 mt-4 flex items-center justify-center gap-2" style={{ marginTop: '1.5rem' }}>
+                  <p className="text-center text-sm mt-4 flex items-center justify-center gap-2" 
+                     style={{ marginTop: '1.5rem', color: themeColors.text.muted }}>
                     <img src={padlockIcon} alt="Secure" className="w-4 h-4" />
                     Your information is secure and will never be shared with third parties.
                   </p>
@@ -439,8 +466,8 @@ const Inquire = () => {
                 transition={{ duration: 0.6, delay: 0.2 }}
               >
                 <motion.h3
-                  className="text-3xl font-bold text-gray-800 mb-8 text-center"
-                  style={{ marginBottom: '2.5rem' }}
+                  className="text-3xl font-bold mb-8 text-center"
+                  style={{ marginBottom: '2.5rem', color: themeColors.text.primary }}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: false }}
@@ -463,10 +490,12 @@ const Inquire = () => {
                         <img src={item.icon} alt={item.alt} className="image w-9 h-9" />
                       </div>
                       <div style={{ paddingTop: '0.25rem' }}>
-                        <h4 className="h4-text font-bold text-gray-800 mb-1" style={{ marginBottom: '0.5rem' }}>
+                        <h4 className="h4-text font-bold mb-1" 
+                            style={{ marginBottom: '0.5rem', color: themeColors.text.primary }}>
                           {item.title}
                         </h4>
-                        <p className="p-text text-gray-700 text-sm" style={{ padding: '0.25rem 0' }}>
+                        <p className="p-text text-sm" 
+                           style={{ padding: '0.25rem 0', color: themeColors.text.secondary }}>
                           {item.description}
                         </p>
                       </div>

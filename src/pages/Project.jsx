@@ -4,6 +4,7 @@ import Card from '../components/Card';
 import Button from '../components/Button';
 import Modal from '../components/Modal';
 import { colors } from '../theme/colors';
+import { useTheme } from '../context/ThemeContext';
 import { fetchProjects } from '../fetches/fetchProjects';
 import { SOCIAL_LINKS } from '../config/api';
 import collaborationIcon from '../assets/icons/collaboration.png';
@@ -15,6 +16,13 @@ const Project = () => {
   const [selectedProject, setSelectedProject] = useState(null);
   const [projects, setProjects] = useState([]);
   const [showAll, setShowAll] = useState(false);
+  const { isDarkMode } = useTheme();
+
+  // Get theme-aware colors
+  const themeColors = {
+    background: isDarkMode ? colors.darkBackground : colors.background,
+    text: isDarkMode ? colors.darkText : colors.text,
+  };
 
   // Determine how many projects to display
   const displayedProjects = showAll ? projects : projects.slice(0, 3);
@@ -58,7 +66,7 @@ const Project = () => {
   }
 
   return (
-    <div className="min-h-screen" style={{ backgroundColor: colors.background.tertiary }}>
+    <div className="min-h-screen" style={{ backgroundColor: themeColors.background.tertiary }}>
       <div className="h-24"></div>
 
       <div className="flex flex-col items-center justify-center w-full gap-24 py-16">
@@ -70,7 +78,8 @@ const Project = () => {
             transition={{ duration: 0.8 }}
           >
             <motion.h1 
-              className="text-5xl font-bold text-gray-800 text-center"
+              className="text-5xl font-bold text-center"
+              style={{ color: themeColors.text.primary }}
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
@@ -78,7 +87,8 @@ const Project = () => {
               Our Projects
             </motion.h1>
             <motion.p 
-              className="text-xl text-gray-600 w-[60%] text-center"
+              className="text-xl w-[60%] text-center"
+              style={{ color: themeColors.text.muted }}
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
@@ -142,8 +152,8 @@ const Project = () => {
           >
             <div className="p-12 text-center max-w-4xl mx-auto">
               <motion.h1 
-                className="text-5xl font-bold text-gray-800" 
-                style={{ marginBottom: '48px' }}
+                className="text-5xl font-bold" 
+                style={{ marginBottom: '48px', color: themeColors.text.primary }}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: false }}
@@ -152,8 +162,8 @@ const Project = () => {
                 Have a Project in Mind?
               </motion.h1>
               <motion.p 
-                className="text-gray-600 text-justify text-xl max-w-2xl mx-auto" 
-                style={{ marginBottom: '64px' }}
+                className="text-justify text-xl max-w-2xl mx-auto" 
+                style={{ marginBottom: '64px', color: themeColors.text.muted }}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: false }}

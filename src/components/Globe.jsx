@@ -295,7 +295,7 @@ const Globe = ({
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.95 }}
               transition={{ duration: 0.4 }}
-              className="w-full flex justify-center"
+              className="w-full flex justify-center pb-8"
               style={{ marginTop: '3rem' }}
             >
               {/* 3D Globe Container - Transparent Background */}
@@ -333,7 +333,7 @@ const Globe = ({
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.4 }}
-              className="w-full"
+              className="w-full pb-8"
               style={{ marginTop: '3rem' }}
             >
               {/* Horizontal Scroll View with Progress Bar */}

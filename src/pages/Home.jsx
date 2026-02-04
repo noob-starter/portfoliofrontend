@@ -5,6 +5,7 @@ import Card from '../components/Card';
 import Modal from '../components/Modal';
 import Loader from '../components/Loader';
 import AnimatedText3D from '../utils/components/AnimatedText3D.jsx';
+import { useTheme } from '../context/ThemeContext';
 import profileImage from '../assets/banner.png';
 import plusIcon from '../assets/icons/plus.png';
 import minusIcon from '../assets/icons/minus.png';
@@ -41,6 +42,14 @@ const Home = () => {
     const loaderCacheDuration = parseInt(import.meta.env.VITE_LOADER_CACHE_DURATION) || 180000; // Default: 3 minutes
     return timeSinceLastShown > loaderCacheDuration; 
   });
+  
+  const { isDarkMode } = useTheme();
+  
+  // Get theme-aware colors
+  const themeColors = {
+    background: isDarkMode ? colors.darkBackground : colors.background,
+    text: isDarkMode ? colors.darkText : colors.text,
+  };
 
   // Function to generate roles with sequential left, top, and delay values
   const generateRoles = (titles) => {
@@ -126,7 +135,7 @@ const Home = () => {
     <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20"
-               style={{ backgroundColor: colors.background.secondary }}>
+               style={{ backgroundColor: themeColors.background.secondary }}>
 
         {/* Profile Image - Full Background */}
         <motion.div
@@ -142,12 +151,18 @@ const Home = () => {
           />
 
           <div className="absolute inset-x-0 bottom-0 h-[30%]">
-            <div className="absolute inset-0 bg-gradient-to-t from-white via-white/80
-            to-transparent backdrop-blur-md"></div>
-            <div className="absolute inset-0 bg-gradient-to-t from-transparent via-white/40
-            to-transparent backdrop-blur-sm"></div>
-            <div className="absolute inset-0 bg-gradient-to-t from-white/50 via-transparent
-            to-transparent"></div>
+            <div className="absolute inset-0 bg-gradient-to-t backdrop-blur-md"
+                 style={{ 
+                   background: `linear-gradient(to top, ${themeColors.background.primary}, ${themeColors.background.primary}80, transparent)` 
+                 }}></div>
+            <div className="absolute inset-0 bg-gradient-to-t backdrop-blur-sm"
+                 style={{ 
+                   background: `linear-gradient(to top, transparent, ${themeColors.background.primary}40, transparent)` 
+                 }}></div>
+            <div className="absolute inset-0 bg-gradient-to-t"
+                 style={{ 
+                   background: `linear-gradient(to top, ${themeColors.background.primary}50, transparent, transparent)` 
+                 }}></div>
           </div>
         </motion.div>
 
@@ -160,7 +175,9 @@ const Home = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: role.delay }}
           >
-            <p className="text-3xl font-semibold text-gray-700">{role.title}</p>
+            <p className="text-3xl font-semibold" style={{ color: themeColors.text.secondary }}>
+              {role.title}
+            </p>
           </motion.div>
         ))}
 
@@ -178,7 +195,8 @@ const Home = () => {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
         >
-          <p className="text-lg text-gray-700 leading-relaxed text-justify font-semibold">
+          <p className="text-lg leading-relaxed text-justify font-semibold" 
+             style={{ color: themeColors.text.secondary }}>
             {profileData.intro}
           </p>
         </motion.div>
@@ -189,8 +207,11 @@ const Home = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.9 }}
         >
-          <h1 className="text-9xl font-bold text-gray-800 tracking-tight shine-text"
-              style={{ fontFamily: "'Getaway Car', sans-serif" }}>
+          <h1 className="text-9xl font-bold tracking-tight shine-text"
+              style={{ 
+                fontFamily: "'Getaway Car', sans-serif",
+                color: themeColors.text.primary
+              }}>
             {profileData.firstName.toUpperCase()}
           </h1>
         </motion.div>
@@ -200,8 +221,11 @@ const Home = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 1.1 }}
         >
-          <h1 className="text-9xl font-bold text-gray-800 tracking-tight shine-text"
-              style={{ fontFamily: "'Getaway Car', sans-serif" }}>
+          <h1 className="text-9xl font-bold tracking-tight shine-text"
+              style={{ 
+                fontFamily: "'Getaway Car', sans-serif",
+                color: themeColors.text.primary
+              }}>
             {profileData.lastName.toUpperCase()}
           </h1>
         </motion.div>
@@ -212,7 +236,7 @@ const Home = () => {
         {/* About Section */}
         <motion.section
           className="w-full"
-          style={{ backgroundColor: colors.background.tertiary }}
+          style={{ backgroundColor: themeColors.background.tertiary }}
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false, amount: 0.3 }}
@@ -227,9 +251,11 @@ const Home = () => {
               viewport={{ once: false, amount: 0.5 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <h2 className="text-5xl font-bold text-gray-800 mb-8 text-center">About Me</h2>
+              <h2 className="text-5xl font-bold mb-8 text-center" 
+                  style={{ color: themeColors.text.primary }}>About Me</h2>
               <br /> <br />
-              <p className="text-xl text-gray-700 leading-relaxed mb-10 text-justify">
+              <p className="text-xl leading-relaxed mb-10 text-justify"
+                 style={{ color: themeColors.text.secondary }}>
                 {profileData.bio}
               </p>
             </motion.div>
@@ -270,7 +296,7 @@ const Home = () => {
         {/* Combined Skills Universe Section - 3D Globe + Horizontal Scroll Toggle */}
         <motion.section
           className="w-full"
-          style={{ backgroundColor: colors.background.tertiary }}
+          style={{ backgroundColor: themeColors.background.tertiary }}
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false, amount: 0.1 }}
@@ -288,23 +314,6 @@ const Home = () => {
         </motion.section>
 
         {/* Education Section */}
-        <motion.section
-          className="w-full"
-          style={{ backgroundColor: colors.background.tertiary }}
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.2 }}
-          transition={{ duration: 0.8 }}
-        >
-          <div style={{ paddingLeft: '10%', paddingRight: '10%', paddingTop: '4%', paddingBottom: '4%' }}>
-            <HorizontalScroll title="Education">
-              {(education.length > 0 ? education : defaultEducation).map((edu, index) => (
-                <Card key={index} {...edu} onOpenModal={() => handleOpenModal(edu)} />
-              ))}
-            </HorizontalScroll>
-          </div>
-        </motion.section>
-
         <motion.div
           className="w-[100%] mx-auto flex flex-col gap-24"
           style={{ paddingLeft: '10%', paddingRight: '10%', paddingTop: '4%', paddingBottom: '4%' }}
@@ -313,27 +322,43 @@ const Home = () => {
           viewport={{ once: false, amount: 0.2 }}
           transition={{ duration: 0.8 }}
         >
-          {/* Achievements Section */}
-          <HorizontalScroll title="Achievements">
-            {(achievements.length > 0 ? achievements : defaultAchievements).map((achievement, index) => (
-              <Card key={index} {...achievement} onOpenModal={() => handleOpenModal(achievement)} />
+          <HorizontalScroll title="Education">
+            {(education.length > 0 ? education : defaultEducation).map((edu, index) => (
+              <Card key={index} {...edu} onOpenModal={() => handleOpenModal(edu)} />
             ))}
           </HorizontalScroll>
         </motion.div>
 
-        {/* FAQ Section */}
+        {/* Achievements Section */}
         <motion.section
           className="w-full"
-          style={{ backgroundColor: colors.background.tertiary }}
+          style={{ backgroundColor: themeColors.background.tertiary }}
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false, amount: 0.2 }}
           transition={{ duration: 0.8 }}
         >
-          <div className="px-6" style={{ paddingLeft: '10%', paddingRight: '10%', paddingTop: '4%',
-              paddingBottom: '4%' }}>
+          <div style={{ paddingLeft: '10%', paddingRight: '10%', paddingTop: '4%', paddingBottom: '4%' }}>
+            <HorizontalScroll title="Achievements">
+              {(achievements.length > 0 ? achievements : defaultAchievements).map((achievement, index) => (
+                <Card key={index} {...achievement} onOpenModal={() => handleOpenModal(achievement)} />
+              ))}
+            </HorizontalScroll>
+          </div>
+        </motion.section>
+
+        {/* FAQ Section */}
+        <motion.div
+          className="w-[100%] mx-auto flex flex-col gap-6"
+          style={{ paddingLeft: '10%', paddingRight: '10%', paddingTop: '4%', paddingBottom: '4%' }}
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, amount: 0.2 }}
+          transition={{ duration: 0.8 }}
+        >
           <motion.h2
-            className="text-3xl font-bold mb-8 text-gray-800 text-center"
+            className="text-3xl font-bold mb-8 text-center"
+            style={{ color: themeColors.text.primary }}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false }}
@@ -342,8 +367,8 @@ const Home = () => {
             Frequently Asked Questions
           </motion.h2>
           <motion.p
-            className="text-gray-600 text-center"
-            style={{ marginBottom: '80px' }}
+            className="text-center"
+            style={{ marginBottom: '80px', color: themeColors.text.muted }}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false }}
@@ -367,7 +392,9 @@ const Home = () => {
                   className="w-full flex items-center justify-between text-left"
                   onClick={() => setOpenFAQ(openFAQ === index ? null : index)}
                 >
-                  <span className="font-semibold text-gray-800">{faq.question}</span>
+                  <span className="font-semibold" style={{ color: themeColors.text.primary }}>
+                    {faq.question}
+                  </span>
                   <motion.img
                     src={openFAQ === index ? minusIcon : plusIcon}
                     alt={openFAQ === index ? 'Collapse' : 'Expand'}
@@ -388,7 +415,7 @@ const Home = () => {
                   style={{ overflow: 'hidden' }}
                 >
                   <div className="pt-4 border-t border-gray-200">
-                    <p className="text-gray-700 leading-relaxed">
+                    <p className="leading-relaxed" style={{ color: themeColors.text.secondary }}>
                       {faq.answer}
                     </p>
                   </div>
@@ -396,9 +423,7 @@ const Home = () => {
               </motion.div>
             ))}
           </div>
-
-          </div>
-        </motion.section>
+        </motion.div>
 
         <div className="w-[100%] mx-auto flex flex-col gap-6" style={{ paddingLeft: '10%', paddingRight: '10%' }}>
           <div className="h-1"></div>

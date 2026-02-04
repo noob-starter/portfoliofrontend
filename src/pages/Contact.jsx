@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { colors } from '../theme/colors';
+import { useTheme } from '../context/ThemeContext';
 import Button from '../components/Button';
 import Card from '../components/Card';
 import MapIcon from '../assets/icons/map.png';
@@ -13,6 +14,13 @@ const Contact = () => {
   const [loading, setLoading] = useState(true);
   const [contactInfo, setContactInfo] = useState([]);
   const [addressInfo, setAddressInfo] = useState([]);
+  const { isDarkMode } = useTheme();
+
+  // Get theme-aware colors
+  const themeColors = {
+    background: isDarkMode ? colors.darkBackground : colors.background,
+    text: isDarkMode ? colors.darkText : colors.text,
+  };
 
   useEffect(() => {
     const loadData = async () => {
@@ -43,13 +51,14 @@ const Contact = () => {
   }
 
   return (
-    <div className="min-h-screen" style={{ backgroundColor: colors.background.secondary }}>
+    <div className="min-h-screen" style={{ backgroundColor: themeColors.background.secondary }}>
 
       {/* Hero Section */}
       <section className="relative min-h-[40vh] flex items-center justify-center pt-20 pb-16">
         <div className="text-center z-10">
           <motion.h1 
-            className="text-7xl font-bold text-gray-800 mb-6"
+            className="text-7xl font-bold mb-6"
+            style={{ color: themeColors.text.primary }}
             initial={{ opacity: 0, y: -50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -57,7 +66,8 @@ const Contact = () => {
             Get In Touch
           </motion.h1>
           <motion.p 
-            className="text-2xl text-gray-600 max-w-3xl mx-auto"
+            className="text-2xl max-w-3xl mx-auto"
+            style={{ color: themeColors.text.muted }}
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -96,14 +106,15 @@ const Contact = () => {
           {/* Social Media Section */}
           <motion.section 
             className="p-12" 
-            style={{ backgroundColor: colors.background.secondary }}
+            style={{ backgroundColor: themeColors.background.secondary }}
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.3 }}
             transition={{ duration: 0.8 }}
           >
             <motion.h2 
-              className="text-4xl font-bold text-gray-800 text-center"
+              className="text-4xl font-bold text-center"
+              style={{ color: themeColors.text.primary }}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: false }}
@@ -115,7 +126,8 @@ const Contact = () => {
             <div className="h-8"></div>
             
             <motion.p 
-              className="text-xl text-gray-600 text-center"
+              className="text-xl text-center"
+              style={{ color: themeColors.text.muted }}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: false }}

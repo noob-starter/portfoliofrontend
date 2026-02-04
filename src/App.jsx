@@ -3,6 +3,8 @@ import { lazy, Suspense, useState, useEffect } from 'react';
 import RouteGuard from './components/RouteGuard';
 import Navbar from './components/Navbar';
 import Loader from './components/Loader';
+import { ThemeProvider, useTheme } from './context/ThemeContext';
+import colors from './theme/colors';
 
 // Lazy load pages for better code splitting and security
 const Home = lazy(() => import('./pages/Home'));
@@ -19,6 +21,7 @@ function Layout() {
   const validPaths = ['/', '/inquire', '/project', '/contact'];
   const showNavbar = validPaths.includes(location.pathname);
   const [isLoadingScreenActive, setIsLoadingScreenActive] = useState(false);
+  const { isDarkMode } = useTheme();
 
   // Check if loading screen is active
   useEffect(() => {
@@ -37,7 +40,9 @@ function Layout() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen" style={{ 
+      backgroundColor: isDarkMode ? colors.darkBackground.primary : colors.background.primary 
+    }}>
       {showNavbar && !isLoadingScreenActive && <Navbar />}
       <Suspense fallback={<LoadingFallback />}>
         <Routes>
@@ -55,11 +60,13 @@ function Layout() {
 
 function App() {
   return (
-    <Router>
-      <RouteGuard>
-        <Layout />
-      </RouteGuard>
-    </Router>
+    <ThemeProvider>
+      <Router>
+        <RouteGuard>
+          <Layout />
+        </RouteGuard>
+      </Router>
+    </ThemeProvider>
   );
 }
 
