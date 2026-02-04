@@ -11,7 +11,7 @@ const Loader = ({ onLoadingComplete }) => {
     // Set flag to hide navbar
     sessionStorage.setItem('portfolioLoadingScreen', 'true');
 
-    const duration = 4500; // 4.5 seconds total
+    const duration = 4000; // 4 seconds total
     const interval = 50; // Update every 50ms
     const steps = duration / interval;
     const increment = 100 / steps;

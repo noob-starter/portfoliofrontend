@@ -375,6 +375,21 @@ export const defaultProjects = [
     githubLink: "https://github.com/noob-starter",
     technologies: ["SQL", "JavaScript", "HTML5", "CSS3"],
     useModal: true
+  },
+  {
+    image: "https://github.com/noob-starter/portfoliojava/blob/main/urls/banners/languages/springboot.png",
+    title: "Real-time Chat Application with Spring Boot",
+    subtitle: "Web Application • 2023",
+    duration: "Sep 2023 - Dec 2023",
+    points: [
+      "Built a scalable real-time chat application using Spring Boot and WebSocket technology, supporting concurrent connections for over 500 users with minimal latency.",
+      "Implemented secure user authentication with JWT tokens and role-based access control, ensuring data privacy and secure communication channels.",
+      "Integrated Redis for session management and message caching, improving response times by 40% and enabling seamless horizontal scaling."
+    ],
+    link: "#project/chat-application",
+    githubLink: "https://github.com/noob-starter",
+    technologies: ["Java", "Spring Boot", "WebSocket", "Redis", "JWT", "PostgreSQL"],
+    useModal: true
   }
 ];
 

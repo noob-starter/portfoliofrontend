@@ -7,12 +7,18 @@ import { colors } from '../theme/colors';
 import { fetchProjects } from '../fetches/fetchProjects';
 import { SOCIAL_LINKS } from '../config/api';
 import collaborationIcon from '../assets/icons/collaboration.png';
+import downArrowIcon from '../assets/icons/down-arrow.png';
 
 const Project = () => {
   const [loading, setLoading] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedProject, setSelectedProject] = useState(null);
   const [projects, setProjects] = useState([]);
+  const [showAll, setShowAll] = useState(false);
+
+  // Determine how many projects to display
+  const displayedProjects = showAll ? projects : projects.slice(0, 3);
+  const hasMoreProjects = projects.length > 3;
 
   useEffect(() => {
     const loadData = async () => {
@@ -90,7 +96,7 @@ const Project = () => {
             transition={{ duration: 0.8 }}
           >
             <div className="flex flex-wrap gap-6 justify-center items-stretch">
-              {projects.map((project, index) => (
+              {displayedProjects.map((project, index) => (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, scale: 0.9 }}
@@ -106,6 +112,24 @@ const Project = () => {
                 </motion.div>
               ))}
             </div>
+
+            {/* Show More / Show Less Button */}
+            {hasMoreProjects && (
+              <motion.div
+                className="flex justify-center"
+                style={{ marginTop: '4rem' }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: false }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+              >
+                <Button
+                  onClick={() => setShowAll(!showAll)}
+                  content={showAll ? "Show Less" : `Show More (${projects.length - 3} more)`}
+                  icon={!showAll ? <img src={downArrowIcon} alt="down arrow" className="w-6 h-6" /> : null}
+                />
+              </motion.div>
+            )}
           </motion.section>
 
           {/* CTA Section */}

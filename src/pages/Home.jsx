@@ -10,6 +10,7 @@ import plusIcon from '../assets/icons/plus.png';
 import minusIcon from '../assets/icons/minus.png';
 import { colors } from '../theme/colors';
 import { defaultTechnologies, defaultInterpersonalSkills, defaultEducation, defaultAchievements } from '../utils/defaultData';
+import Globe from '../components/Globe';
 import { mapProfileData } from '../mappers/profileMapper.js';
 import { fetchProfile } from '../fetches/fetchProfile';
 import { fetchFaqs } from '../fetches/fetchFaqs';
@@ -37,7 +38,7 @@ const Home = () => {
       return true; // First time, show loader
     }
     const timeSinceLastShown = Date.now() - parseInt(lastLoaderShown);
-    const loaderCacheDuration = parseInt(import.meta.env.VITE_LOADER_CACHE_DURATION) || 120000; // Default: 2 minutes
+    const loaderCacheDuration = parseInt(import.meta.env.VITE_LOADER_CACHE_DURATION) || 180000; // Default: 3 minutes
     return timeSinceLastShown > loaderCacheDuration; 
   });
 
@@ -266,39 +267,25 @@ const Home = () => {
           </HorizontalScroll>
         </motion.div>
 
-        {/* Technologies Section */}
+        {/* Combined Skills Universe Section - 3D Globe + Horizontal Scroll Toggle */}
         <motion.section
           className="w-full"
           style={{ backgroundColor: colors.background.tertiary }}
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.2 }}
+          viewport={{ once: false, amount: 0.1 }}
           transition={{ duration: 0.8 }}
         >
           <div style={{ paddingLeft: '10%', paddingRight: '10%', paddingTop: '4%', paddingBottom: '4%' }}>
-            <HorizontalScroll title="Technical Skills">
-              {(technologies.length > 0 ? technologies : defaultTechnologies).map((tech, index) => (
-                <Card key={index} {...tech} hideMoreButton={true} />
-              ))}
-            </HorizontalScroll>
+            <Globe 
+              skills={[
+                ...(technologies.length > 0 ? technologies : defaultTechnologies),
+                ...(interpersonalSkills.length > 0 ? interpersonalSkills : defaultInterpersonalSkills)
+              ]} 
+              title="Skills Universe"
+            />
           </div>
         </motion.section>
-
-        <motion.div
-          className="w-[100%] mx-auto flex flex-col gap-24"
-          style={{ paddingLeft: '10%', paddingRight: '10%', paddingTop: '4%', paddingBottom: '4%' }}
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.2 }}
-          transition={{ duration: 0.8 }}
-        >
-          {/* Interpersonal Skills Section */}
-          <HorizontalScroll title="Interpersonal Skills">
-            {(interpersonalSkills.length > 0 ? interpersonalSkills : defaultInterpersonalSkills).map((skill, index) => (
-              <Card key={index} {...skill} hideMoreButton={true} />
-            ))}
-          </HorizontalScroll>
-        </motion.div>
 
         {/* Education Section */}
         <motion.section
