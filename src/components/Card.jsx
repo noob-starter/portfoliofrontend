@@ -1,9 +1,12 @@
 import ArrowIcon from '../assets/icons/arrow.png';
 import GithubIcon from '../assets/icons/github.png';
 import { truncateText, joinContentUsingSeperator } from '../utils/helper';
+import { useTheme } from '../context/ThemeContext';
 
 const Card = ({ title, subtitle, duration, description, image, label,
                   link = "#", githubLink = "#", useModal = false, points = [], onOpenModal, hideMoreButton = false }) => {
+  
+  const { isDarkMode } = useTheme();
 
   // Generate description from points if available
   const displayDescription = points && points.length > 0 
@@ -42,8 +45,8 @@ const Card = ({ title, subtitle, duration, description, image, label,
 
           {title && (
             <h2 
-              className="text-[1.9rem] font-bold tracking-wider text-ui-black transition-colors
-              duration-300 ease-out leading-tight group-hover:text-brand-teal text-center"
+              className={`text-[1.9rem] font-bold tracking-wider ${isDarkMode ? 'text-white' : 'text-ui-black'} transition-colors
+              duration-300 ease-out leading-tight group-hover:text-brand-teal text-center`}
               style={{ marginBottom: subtitle ? '0.5rem' : '1rem' }}
             >
               {truncateText(title, 15)}
@@ -51,19 +54,19 @@ const Card = ({ title, subtitle, duration, description, image, label,
           )}
 
           {subtitle && (
-            <p className="text-text-tertiary text-base text-center mb-4 italic">{truncateText(subtitle, 150)}</p>
+            <p className={`${isDarkMode ? 'text-gray-300' : 'text-text-tertiary'} text-base text-center mb-4 italic`}>{truncateText(subtitle, 150)}</p>
           )}
 
           {duration && (
-            <p className="text-text-secondary text-sm text-center mb-4">{duration}</p>
+            <p className={`${isDarkMode ? 'text-gray-200' : 'text-text-secondary'} text-sm text-center mb-4`}>{duration}</p>
           )}
 
           {label && (
-            <p className="text-text-tertiary text-lg text-center mb-4">{label}</p>
+            <p className={`${isDarkMode ? 'text-gray-300' : 'text-text-tertiary'} text-lg text-center mb-4`}>{label}</p>
           )}
 
           {displayDescription && (
-            <p className="text-text-secondary text-justify leading-relaxed mb-6 text-base flex-1"
+            <p className={`${isDarkMode ? 'text-gray-200' : 'text-text-secondary'} text-justify leading-relaxed mb-6 text-base flex-1`}
             style={{ marginBottom: '1rem' }}>
               {truncateText(displayDescription, 120)}
             </p>
@@ -73,8 +76,8 @@ const Card = ({ title, subtitle, duration, description, image, label,
             {!hideMoreButton && (
               <a 
                 href={useModal ? "#" : link}
-                className="inline-flex items-center no-underline text-text-link font-large
-                group-hover:gap-2 transition-all text-xl"
+                className={`inline-flex items-center no-underline ${isDarkMode ? 'text-theme-blue' : 'text-text-link'} font-large
+                group-hover:gap-2 transition-all text-xl`}
                 onClick={handleMoreClick}
               >
                 More
@@ -93,7 +96,7 @@ const Card = ({ title, subtitle, duration, description, image, label,
                 href={githubLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${hideMoreButton ? '' : 'absolute right-0'} text-text-tertiary hover:text-text-link transition-colors duration-300`}
+                className={`${hideMoreButton ? '' : 'absolute right-0'} ${isDarkMode ? 'text-gray-300 hover:text-theme-blue' : 'text-text-tertiary hover:text-text-link'} transition-colors duration-300`}
                 onClick={(e) => e.stopPropagation()}
               >
                 <img 
